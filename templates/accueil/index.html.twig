@@ -1,20 +1,89 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccueilController!{% endblock %}
+{% block title %}Empire BTP - Le Jeu de Construction{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="hero-section text-white text-center py-5" style="background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%); min-height: 60vh; display: flex; align-items: center;">
+    <div class="container">
+        <h1 class="display-1 fw-bold mb-4" style="font-family: 'Anton', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+            <i class="fas fa-hard-hat"></i> EMPIRE BTP
+        </h1>
+        <p class="lead fs-3 mb-4">Construisez votre empire du bâtiment !</p>
+        <p class="fs-5 mb-5">Gérez vos chantiers, recrutez des ouvriers et devenez le roi du BTP</p>
+        
+        {% if app.user %}
+            <a href="#" class="btn btn-light btn-lg px-5 py-3 me-3">
+                <i class="fas fa-play"></i> Jouer Maintenant
+            </a>
+            <a href="{{ path('app_account') }}" class="btn btn-outline-light btn-lg px-5 py-3">
+                <i class="fas fa-user"></i> Mon Profil
+            </a>
+        {% else %}
+            <a href="{{ path('app_register') }}" class="btn btn-light btn-lg px-5 py-3 me-3">
+                <i class="fas fa-user-plus"></i> Commencer à Jouer
+            </a>
+            <a href="{{ path('app_login') }}" class="btn btn-outline-light btn-lg px-5 py-3">
+                <i class="fas fa-sign-in-alt"></i> Se Connecter
+            </a>
+        {% endif %}
+    </div>
+</div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="container my-5">
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="fas fa-building fa-4x text-warning mb-3"></i>
+                    <h3 class="card-title">Construisez</h3>
+                    <p class="card-text">Gérez vos chantiers et développez votre entreprise de construction</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="fas fa-users fa-4x text-primary mb-3"></i>
+                    <h3 class="card-title">Recrutez</h3>
+                    <p class="card-text">Embauchez les meilleurs ouvriers et formez une équipe d'élite</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="fas fa-trophy fa-4x text-success mb-3"></i>
+                    <h3 class="card-title">Dominez</h3>
+                    <p class="card-text">Grimpez dans le classement et devenez le n°1 du BTP</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/xampp/htdocs/empirebtp/src/Controller/AccueilController.php</code></li>
-        <li>Your template at <code>C:/xampp/htdocs/empirebtp/templates/accueil/index.html.twig</code></li>
-    </ul>
+<div class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Statistiques du Jeu</h2>
+        <div class="row text-center">
+            <div class="col-md-3 mb-3">
+                <h3 class="display-4 text-warning">1,234</h3>
+                <p class="text-muted">Joueurs Actifs</p>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h3 class="display-4 text-primary">5,678</h3>
+                <p class="text-muted">Chantiers Complétés</p>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h3 class="display-4 text-success">12,345</h3>
+                <p class="text-muted">Ouvriers Recrutés</p>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h3 class="display-4 text-danger">98</h3>
+                <p class="text-muted">Entreprises Créées</p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
