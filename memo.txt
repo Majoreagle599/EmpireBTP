@@ -2,7 +2,23 @@
                     EMPIRE BTP - MÉMO COMMANDES
 ═══════════════════════════════════════════════════════════════
 
-📋 DÉMARRAGE DU PROJET
+� SERVEUR STABLE - SOLUTIONS ANTI-ARRÊT AUTOMATIQUE
+═══════════════════════════════════════════════════════════════
+
+PROBLÈME RÉSOLU : Le serveur ne s'arrête plus toutes les 5 minutes !
+
+1. SCRIPT AUTO-RESTART (Recommandé) :
+   > Double-cliquer sur : start-server.bat
+   > Redémarre automatiquement si le serveur s'arrête
+   
+2. SCRIPT POWERSHELL AVANCÉ :
+   > powershell -ExecutionPolicy Bypass -File start-server.ps1
+   > Logs dans var/log/server.log
+   
+3. COMMANDE MANUELLE (Backup) :
+   > C:\xampp\php\php.exe -S localhost:8000 -t public
+
+�📋 DÉMARRAGE DU PROJET
 ═══════════════════════════════════════════════════════════════
 
 1. Démarrer XAMPP (uniquement pour MySQL) :

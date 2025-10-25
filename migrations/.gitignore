@@ -1,0 +1,14 @@
+# EMPIREBTP - PROTECTION MIGRATIONS
+# Seul InitialSchema.php est autorisé !
+
+# Bloquer toutes les nouvelles migrations
+Version*.php
+DoctrineMigrations_*.php
+Migration_*.php
+
+# Autoriser uniquement
+!InitialSchema.php
+!.gitignore
+
+# Protection: Si quelqu'un essaie de committer une nouvelle migration,
+# elle sera ignorée par Git et le hook pre-commit la détectera

@@ -1,0 +1,316 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}
+    <i class="fas fa-building"></i> EmpireBTP - Tableau de Bord
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <!-- Statistiques générales -->
+        <div class="col-md-3 mb-4">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">{{ stats.totalUsers ?? 0 }}</h4>
+                            <p class="card-text">Utilisateurs</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-users fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">{{ stats.totalChantiers ?? 0 }}</h4>
+                            <p class="card-text">Chantiers Actifs</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-hard-hat fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">{{ stats.totalMachines ?? 0 }}</h4>
+                            <p class="card-text">Machines BTP</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-truck fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4 class="card-title">{{ stats.totalEntreprises ?? 0 }}</h4>
+                            <p class="card-text">Entreprises</p>
+                        </div>
+                        <div class="align-self-center">
+                            <i class="fas fa-industry fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Activités récentes -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-clock"></i> Activités Récentes</h5>
+                </div>
+                <div class="card-body">
+                    <div class="timeline">
+                        {% if recentActivities is defined and recentActivities %}
+                            {% for activity in recentActivities %}
+                                <div class="timeline-item">
+                                    <div class="timeline-marker bg-primary"></div>
+                                    <div class="timeline-content">
+                                        <h6>{{ activity.title }}</h6>
+                                        <p class="text-muted">{{ activity.description }}</p>
+                                        <small class="text-muted">{{ activity.createdAt|date('d/m/Y H:i') }}</small>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle"></i> Aucune activité récente pour le moment.
+                                <br><small>Les activités s'afficheront ici au fur et à mesure du développement de l'application.</small>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actions rapides -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-bolt"></i> Actions Rapides</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="{{ path('admin', {crudAction: 'new', crudControllerFqcn: 'App\\Controller\\Admin\\UserCrudController'}) }}" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i> Créer Utilisateur
+                        </a>
+                        <a href="{{ path('admin', {crudAction: 'index', crudControllerFqcn: 'App\\Controller\\Admin\\UserCrudController'}) }}" class="btn btn-info">
+                            <i class="fas fa-users"></i> Gérer Utilisateurs
+                        </a>
+                        <a href="{{ path('app_register') }}" target="_blank" class="btn btn-success">
+                            <i class="fas fa-external-link-alt"></i> Page d'Inscription
+                        </a>
+                        <a href="{{ path('app_login') }}" target="_blank" class="btn btn-warning">
+                            <i class="fas fa-sign-in-alt"></i> Page de Connexion
+                        </a>
+                        <a href="{{ path('app_accueil') }}" target="_blank" class="btn btn-secondary">
+                            <i class="fas fa-home"></i> Accueil du Site
+                        </a>
+                        <a href="#" onclick="clearCache()" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Vider le Cache
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secteurs BTP -->
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5><i class="fas fa-layer-group"></i> Secteurs BTP</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <span><i class="fas fa-hammer text-primary"></i> Construction</span>
+                            <span class="badge bg-primary rounded-pill">{{ stats.constructionProjects ?? 0 }}</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <span><i class="fas fa-bomb text-danger"></i> Démolition</span>
+                            <span class="badge bg-danger rounded-pill">{{ stats.demolitionProjects ?? 0 }}</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <span><i class="fas fa-mountain text-warning"></i> Carrières</span>
+                            <span class="badge bg-warning rounded-pill">{{ stats.quarryProjects ?? 0 }}</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <span><i class="fas fa-road text-info"></i> Travaux Publics</span>
+                            <span class="badge bg-info rounded-pill">{{ stats.publicWorksProjects ?? 0 }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outils de développement -->
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5><i class="fas fa-code"></i> Outils de Développement</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <button onclick="showDatabaseInfo()" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-database"></i> Infos Base de Données
+                        </button>
+                        <button onclick="showRoutes()" class="btn btn-outline-info btn-sm">
+                            <i class="fas fa-route"></i> Voir les Routes
+                        </button>
+                        <button onclick="showServices()" class="btn btn-outline-success btn-sm">
+                            <i class="fas fa-cogs"></i> Services Symfony
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Graphique de progression (placeholder) -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-chart-line"></i> Vue d'ensemble du Simulateur BTP</h5>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-success">
+                        <h6><i class="fas fa-check-circle"></i> Système d'authentification opérationnel</h6>
+                        <p class="mb-1">✅ Inscription utilisateur fonctionnelle</p>
+                        <p class="mb-1">✅ Connexion/déconnexion opérationnelle</p>
+                        <p class="mb-1">✅ Interface d'administration accessible</p>
+                        <p class="mb-0">✅ Gestion des rôles utilisateur (Admin/User)</p>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <h6><i class="fas fa-road"></i> Prochaines étapes de développement</h6>
+                        <p class="mb-1">🔄 Création des entités métier (Entreprise, Chantier, Machine)</p>
+                        <p class="mb-1">🔄 Développement du système de simulation économique</p>
+                        <p class="mb-1">🔄 Interface de gestion des chantiers</p>
+                        <p class="mb-0">🔄 Système de progression et d'achievements</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: -35px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        .timeline-item:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 15px;
+            width: 2px;
+            height: calc(100% + 5px);
+            background-color: #dee2e6;
+        }
+        
+        .card {
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            border: 1px solid rgba(0, 0, 0, 0.125);
+        }
+        
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        function clearCache() {
+            if (confirm('Êtes-vous sûr de vouloir vider le cache ?')) {
+                // Simulation du vidage de cache
+                const btn = event.target;
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Vidage...';
+                btn.disabled = true;
+                
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-check"></i> Cache vidé !';
+                    btn.className = 'btn btn-success';
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.className = 'btn btn-danger';
+                        btn.disabled = false;
+                    }, 2000);
+                }, 1500);
+            }
+        }
+
+        function showDatabaseInfo() {
+            alert('Base de données: SQLite\\nUtilisateurs: {{ stats.totalUsers ?? 0 }}\\nFichier: var/data.db');
+        }
+
+        function showRoutes() {
+            const routes = [
+                '/ - Accueil',
+                '/connexion - Login',
+                '/inscription - Inscription', 
+                '/admin - Administration',
+                '/compte - Profil utilisateur'
+            ];
+            alert('Routes principales:\\n\\n' + routes.join('\\n'));
+        }
+
+        function showServices() {
+            alert('Services principaux:\\n\\n• UserRepository\\n• UserPasswordHasher\\n• Security\\n• Doctrine ORM\\n• EasyAdmin\\n• Webpack Encore');
+        }
+
+        // Animation des cartes au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+{% endblock %}
