@@ -7,6 +7,33 @@ Bienvenue dans **Empire BTP**, une application web de gestion d'empire BTP déve
 **Email :** empirebtp1@gmail.com  
 **Mot de passe :** empirebtp1A2A
 
+## 🏗️ VISION PROJET - SECTEURS D'ACTIVITÉ BTP
+
+### 📋 Secteurs d'activité prévus :
+- 🏗️ **CONSTRUCTION** - Bâtiments, maisons, immeubles
+- 🛣️ **VOIRIE** - Routes, ponts, infrastructure routière  
+- 💥 **DÉMOLITION** - Déconstruction, désamiantage
+- ⛏️ **CARRIÈRE** - Extraction, granulats, matières premières
+- 🏭 **TRAVAUX PUBLICS** - Réseaux, assainissement
+- 🌉 **GÉNIE CIVIL** - Ouvrages d'art, tunnels
+- 🏢 **RÉNOVATION** - Réhabilitation, restauration
+
+### 🎯 Spécificités par secteur :
+Chaque secteur aura :
+- Ses **machines spécifiques** (pelleteuses, grues, concasseurs...)
+- Ses **matériaux propres** (béton, bitume, granulats...)
+- Ses **compétences requises** (maçons, grutiers, mineurs...)
+- Ses **réglementations** (permis, normes environnementales...)
+- Ses **types de chantiers** (résidentiel, industriel, routier...)
+- Sa **rentabilité** et ses défis économiques
+
+### 🏛️ Architecture système :
+```
+Entreprise → Secteurs d'activité → Chantiers spécialisés → Équipes & Matériel
+```
+
+> **📢 IMPORTANT POUR MAJOR : Merci de lire cette section pour comprendre la vision multi-secteurs du projet !**
+
 ## 📋 Prérequis
 
 Avant de commencer, assurez-vous d'avoir installé :
