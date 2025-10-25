@@ -2,6 +2,11 @@
 
 Bienvenue dans **Empire BTP**, une application web de gestion d'empire BTP développée avec Symfony.
 
+## 🔐 Identifiants de connexion
+
+**Email :** empirebtp1@gmail.com  
+**Mot de passe :** empirebtp1A2A
+
 ## 📋 Prérequis
 
 Avant de commencer, assurez-vous d'avoir installé :
