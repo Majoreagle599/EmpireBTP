@@ -8,7 +8,7 @@ Bienvenue dans **Empire BTP**, une application web de gestion d'empire BTP déve
 **Mot de passe :** empirebtp1A2A
 
 ## 🏗️ VISION PROJET - SECTEURS D'ACTIVITÉ BTP
-
+  ( a voir ensemble )
 ### 📋 Secteurs d'activité prévus :
 - 🏗️ **CONSTRUCTION** - Bâtiments, maisons, immeubles
 - 🛣️ **VOIRIE** - Routes, ponts, infrastructure routière  
@@ -278,7 +278,7 @@ C:\xampp\php\php.exe bin/console cache:clear
 
 ## 👥 Contributeurs
 
-- Développeur principal : Votre équipe
+- Développeur principal : Major & Jeremy
 
 ## 📄 Licence
 

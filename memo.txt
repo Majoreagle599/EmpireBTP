@@ -5,19 +5,31 @@
 📋 DÉMARRAGE DU PROJET
 ═══════════════════════════════════════════════════════════════
 
-1. Démarrer XAMPP :
+1. Démarrer XAMPP (uniquement pour MySQL) :
    - Ouvrir XAMPP Control Panel
-   - Cliquer sur "Start" pour Apache
-   - Cliquer sur "Start" pour MySQL
+   - Cliquer sur "Start" pour MySQL (Apache pas nécessaire)
 
 2. Compiler les assets (CSS/JS) :
-   cd C:\xampp\htdocs\empirebtp
+   cd C:\xampp\htdocs\EmpireBtp
    npm run dev
    
    (Ou "npm run watch" pour recompiler automatiquement à chaque modification)
 
-3. Accéder au site :
-   http://localhost/empirebtp/public/
+3. Démarrer le serveur Symfony :
+   C:\xampp\php\php.exe -S 127.0.0.1:8000 -t public
+
+4. Accéder au site :
+   http://localhost:8000
+
+
+═══════════════════════════════════════════════════════════════
+🌐 CONFIGURATION MULTI-PROJETS
+═══════════════════════════════════════════════════════════════
+
+localhost (port 80)     ➜ Agri-Cult (Docker)
+localhost:8000          ➜ Empire BTP (Serveur PHP Symfony)
+
+Cette configuration évite les conflits entre projets !
 
 
 ═══════════════════════════════════════════════════════════════
@@ -75,13 +87,15 @@ git push origin main          # Envoyer les changements
 🌐 URLS IMPORTANTES
 ═══════════════════════════════════════════════════════════════
 
-Accueil :           http://localhost/empirebtp/public/
-Inscription :       http://localhost/empirebtp/public/inscription
-Connexion :         http://localhost/empirebtp/public/connexion
-Mon compte :        http://localhost/empirebtp/public/compte
-Administration :    http://localhost/empirebtp/public/admin
+Accueil :           http://localhost:8000/
+Inscription :       http://localhost:8000/inscription
+Connexion :         http://localhost:8000/connexion
+Mon compte :        http://localhost:8000/compte
+Administration :    http://localhost:8000/admin
 
 GitHub :            https://github.com/Majoreagle599/EmpireBTP
+
+⚠️ IMPORTANT : Utiliser le port 8000 pour éviter les conflits avec Docker !
 
 
 ═══════════════════════════════════════════════════════════════
@@ -133,8 +147,13 @@ Base de données :
 
 - Toujours faire "git pull" avant de commencer à travailler
 - Toujours compiler les assets avec "npm run watch" pendant le dev
+- Démarrer le serveur avec : C:\xampp\php\php.exe -S 127.0.0.1:8000 -t public
 - Vider le cache si problème : php bin/console cache:clear
 - Utiliser GitKraken pour gérer Git visuellement
 - Ne jamais commiter les dossiers : vendor/, node_modules/, var/
+- Le projet utilise le port 8000 pour éviter les conflits avec Docker
+
+🚀 COMMANDE RAPIDE DÉMARRAGE :
+cd C:\xampp\htdocs\EmpireBtp && C:\xampp\php\php.exe -S 127.0.0.1:8000 -t public
 
 ═══════════════════════════════════════════════════════════════
