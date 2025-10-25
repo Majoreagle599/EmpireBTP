@@ -1,0 +1,140 @@
+═══════════════════════════════════════════════════════════════
+                    EMPIRE BTP - MÉMO COMMANDES
+═══════════════════════════════════════════════════════════════
+
+📋 DÉMARRAGE DU PROJET
+═══════════════════════════════════════════════════════════════
+
+1. Démarrer XAMPP :
+   - Ouvrir XAMPP Control Panel
+   - Cliquer sur "Start" pour Apache
+   - Cliquer sur "Start" pour MySQL
+
+2. Compiler les assets (CSS/JS) :
+   cd C:\xampp\htdocs\empirebtp
+   npm run dev
+   
+   (Ou "npm run watch" pour recompiler automatiquement à chaque modification)
+
+3. Accéder au site :
+   http://localhost/empirebtp/public/
+
+
+═══════════════════════════════════════════════════════════════
+🛠️ COMMANDES UTILES
+═══════════════════════════════════════════════════════════════
+
+📦 COMPOSER (PHP)
+-----------------
+C:\xampp\php\php.exe composer.phar install       # Installer les dépendances
+C:\xampp\php\php.exe composer.phar update        # Mettre à jour les dépendances
+C:\xampp\php\php.exe composer.phar require [package]  # Installer un package
+
+📦 NPM (JavaScript)
+-------------------
+npm install                   # Installer les dépendances Node
+npm run dev                   # Compiler les assets (une fois)
+npm run watch                 # Compiler les assets (mode watch)
+npm run build                 # Compiler pour la production
+
+🗄️ BASE DE DONNÉES
+-------------------
+C:\xampp\php\php.exe bin/console doctrine:database:create              # Créer la BDD
+C:\xampp\php\php.exe bin/console doctrine:migrations:migrate           # Exécuter les migrations
+C:\xampp\php\php.exe bin/console make:entity                           # Créer une entité
+C:\xampp\php\php.exe bin/console make:migration                        # Créer une migration
+
+👤 UTILISATEURS
+---------------
+C:\xampp\php\php.exe bin/console app:create-admin-user                 # Créer un admin
+   Email: admin@admin.com
+   Password: 123456
+
+🎨 SYMFONY
+----------
+C:\xampp\php\php.exe bin/console make:controller [NomController]       # Créer un contrôleur
+C:\xampp\php\php.exe bin/console make:form                             # Créer un formulaire
+C:\xampp\php\php.exe bin/console cache:clear                           # Vider le cache
+C:\xampp\php\php.exe bin/console debug:router                          # Lister les routes
+
+📊 EASYADMIN
+------------
+C:\xampp\php\php.exe bin/console make:admin:dashboard                  # Créer le dashboard
+C:\xampp\php\php.exe bin/console make:admin:crud                       # Créer un CRUD
+
+🔄 GIT
+------
+git status                    # Voir les modifications
+git add .                     # Ajouter tous les fichiers
+git commit -m "message"       # Faire un commit
+git pull origin main          # Récupérer les changements
+git push origin main          # Envoyer les changements
+
+
+═══════════════════════════════════════════════════════════════
+🌐 URLS IMPORTANTES
+═══════════════════════════════════════════════════════════════
+
+Accueil :           http://localhost/empirebtp/public/
+Inscription :       http://localhost/empirebtp/public/inscription
+Connexion :         http://localhost/empirebtp/public/connexion
+Mon compte :        http://localhost/empirebtp/public/compte
+Administration :    http://localhost/empirebtp/public/admin
+
+GitHub :            https://github.com/Majoreagle599/EmpireBTP
+
+
+═══════════════════════════════════════════════════════════════
+📁 STRUCTURE DU PROJET
+═══════════════════════════════════════════════════════════════
+
+src/
+├── Controller/        # Contrôleurs
+├── Entity/           # Entités (modèles)
+├── Form/             # Formulaires
+├── Repository/       # Repositories
+└── Command/          # Commandes console
+
+templates/            # Templates Twig
+├── base.html.twig   # Template de base
+├── accueil/         # Page d'accueil
+├── login/           # Page de connexion
+├── register/        # Page d'inscription
+└── account/         # Page compte utilisateur
+
+assets/              # Assets (CSS, JS)
+├── styles/          # Fichiers CSS
+└── app.js           # JavaScript principal
+
+config/              # Configuration Symfony
+public/              # Dossier web public
+migrations/          # Migrations de base de données
+
+
+═══════════════════════════════════════════════════════════════
+🔑 IDENTIFIANTS PAR DÉFAUT
+═══════════════════════════════════════════════════════════════
+
+Administrateur :
+   Email: admin@admin.com
+   Password: 123456
+
+Base de données :
+   Host: 127.0.0.1
+   Port: 3306
+   Database: empirebtp
+   User: root
+   Password: (vide)
+
+
+═══════════════════════════════════════════════════════════════
+💡 ASTUCES
+═══════════════════════════════════════════════════════════════
+
+- Toujours faire "git pull" avant de commencer à travailler
+- Toujours compiler les assets avec "npm run watch" pendant le dev
+- Vider le cache si problème : php bin/console cache:clear
+- Utiliser GitKraken pour gérer Git visuellement
+- Ne jamais commiter les dossiers : vendor/, node_modules/, var/
+
+═══════════════════════════════════════════════════════════════

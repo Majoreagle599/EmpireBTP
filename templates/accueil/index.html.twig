@@ -1,38 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Empire BTP{% endblock %}
+{% block title %}Accueil - Empire BTP{% endblock %}
 
 {% block body %}
-<div class="container mt-5">
-    <div class="text-center mb-5">
-        <h1 class="display-4 mb-3">Bienvenue sur Empire BTP</h1>
-        <p class="lead text-muted">Construisez votre empire du bâtiment</p>
+<div class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title">🏗️ Empire BTP</h1>
+        
+        {% if app.user %}
+            <p class="hero-subtitle">Bienvenue, {{ app.user.email }} !</p>
+            <p class="lead mb-4">Votre empire du BTP vous attend. Gérez vos projets, développez votre entreprise et devenez le leader du secteur !</p>
+            <div>
+                <a href="#" class="btn btn-custom btn-primary-custom">🎮 Commencer à jouer</a>
+                <a href="{{ path('app_account') }}" class="btn btn-custom btn-secondary-custom">👤 Mon profil</a>
+            </div>
+        {% else %}
+            <p class="hero-subtitle">Construisez votre empire du BTP dès maintenant !</p>
+            <p class="lead mb-4">Gérez votre entreprise, réalisez des projets ambitieux et développez votre empire dans le monde du BTP.</p>
+            <div>
+                <a href="{{ path('app_register') }}" class="btn btn-custom btn-primary-custom">🚀 S'inscrire</a>
+                <a href="{{ path('app_login') }}" class="btn btn-custom btn-secondary-custom">🔑 Se connecter</a>
+            </div>
+        {% endif %}
     </div>
+</div>
 
-    {% if not app.user %}
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-6 text-center">
-                <a href="{{ path('app_register') }}" class="btn btn-primary btn-lg mb-3 w-100">
-                    Créer un compte
-                </a>
-                <a href="{{ path('app_login') }}" class="btn btn-outline-primary btn-lg w-100">
-                    Se connecter
-                </a>
+<div class="container features-section">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">🏢</div>
+                <h3>Gérez votre entreprise</h3>
+                <p>Développez votre société de BTP et prenez les meilleures décisions stratégiques.</p>
             </div>
         </div>
-    {% else %}
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body text-center py-5">
-                        <h2 class="mb-4">Bonjour {{ app.user.email }} !</h2>
-                        <a href="#" class="btn btn-success btn-lg">
-                            Commencer à jouer
-                        </a>
-                    </div>
-                </div>
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Suivez vos projets</h3>
+                <p>Gérez plusieurs chantiers simultanément et optimisez vos ressources.</p>
             </div>
         </div>
-    {% endif %}
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Augmentez vos profits</h3>
+                <p>Investissez intelligemment et développez votre empire financier.</p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
