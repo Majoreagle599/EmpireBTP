@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Chantiers - Empire BTP{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="hero-title">🏗️ Mes Chantiers</h1>
+                <button class="btn btn-primary-custom">+ Nouveau Chantier</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="feature-card">
+                <div class="feature-icon">🏢</div>
+                <h3>Immeuble de bureaux</h3>
+                <p><strong>Localisation :</strong> Paris 15ème</p>
+                <p><strong>Progression :</strong> 65%</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 65%"></div>
+                </div>
+                <p><strong>Budget :</strong> 2 500 000 €</p>
+                <p><strong>Échéance :</strong> 15 jours restants</p>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-sm btn-secondary-custom">Détails</button>
+                    <button class="btn btn-sm btn-outline-secondary">Gérer</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="feature-card">
+                <div class="feature-icon">🏠</div>
+                <h3>Résidence 20 logements</h3>
+                <p><strong>Localisation :</strong> Lyon 3ème</p>
+                <p><strong>Progression :</strong> 30%</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 30%"></div>
+                </div>
+                <p><strong>Budget :</strong> 1 800 000 €</p>
+                <p><strong>Échéance :</strong> 42 jours restants</p>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-sm btn-secondary-custom">Détails</button>
+                    <button class="btn btn-sm btn-outline-secondary">Gérer</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="feature-card">
+                <div class="feature-icon">🛣️</div>
+                <h3>Route départementale D12</h3>
+                <p><strong>Localisation :</strong> Bordeaux</p>
+                <p><strong>Progression :</strong> 90%</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 90%"></div>
+                </div>
+                <p><strong>Budget :</strong> 950 000 €</p>
+                <p><strong>Échéance :</strong> 5 jours restants</p>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-sm btn-secondary-custom">Détails</button>
+                    <button class="btn btn-sm btn-outline-secondary">Gérer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5>📊 Statistiques globales</h5>
+                    <div class="row mt-3">
+                        <div class="col-md-3">
+                            <p class="mb-1"><strong>Chantiers actifs</strong></p>
+                            <h3 style="color: var(--accent);">3</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="mb-1"><strong>Budget total</strong></p>
+                            <h3 style="color: var(--accent);">5.25M €</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="mb-1"><strong>Progression moyenne</strong></p>
+                            <h3 style="color: var(--accent);">62%</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="mb-1"><strong>Personnel mobilisé</strong></p>
+                            <h3 style="color: var(--accent);">127</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

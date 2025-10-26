@@ -1,0 +1,156 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marché - Empire BTP{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="hero-title mb-4">🛒 Marché du BTP</h1>
+            <p class="lead">Achetez et vendez des ressources avec d'autres joueurs</p>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5>💰 Votre trésorerie</h5>
+                    <h2 style="color: var(--accent);">1 245 000 €</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5>📈 Achats aujourd'hui</h5>
+                    <h2 style="color: var(--accent);">3</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5>📉 Ventes aujourd'hui</h5>
+                    <h2 style="color: var(--accent);">1</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 mb-3">
+            <h3>🏪 Offres disponibles</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="feature-card">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="feature-icon">🧱</div>
+                    <span class="badge bg-success">Meilleur prix</span>
+                </div>
+                <h3>Briques rouges - 10 000 unités</h3>
+                <p><strong>Vendeur :</strong> Entreprise Dubois</p>
+                <p><strong>Prix unitaire :</strong> 0.45 €</p>
+                <p><strong>Prix total :</strong> 4 500 €</p>
+                <p><strong>Localisation :</strong> Région Parisienne</p>
+                <p><strong>Délai livraison :</strong> 2 jours</p>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-primary-custom btn-sm">Acheter</button>
+                    <button class="btn btn-outline-secondary btn-sm">Négocier</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="feature-card">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="feature-icon">🪨</div>
+                    <span class="badge bg-warning text-dark">Stock limité</span>
+                </div>
+                <h3>Gravier - 50 tonnes</h3>
+                <p><strong>Vendeur :</strong> BTP Solutions</p>
+                <p><strong>Prix unitaire :</strong> 25 €/tonne</p>
+                <p><strong>Prix total :</strong> 1 250 €</p>
+                <p><strong>Localisation :</strong> Lyon</p>
+                <p><strong>Délai livraison :</strong> 1 jour</p>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-primary-custom btn-sm">Acheter</button>
+                    <button class="btn btn-outline-secondary btn-sm">Négocier</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="feature-card">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="feature-icon">🪵</div>
+                    <span class="badge bg-info">Nouveau</span>
+                </div>
+                <h3>Bois de charpente - 200 m³</h3>
+                <p><strong>Vendeur :</strong> Scierie Martin</p>
+                <p><strong>Prix unitaire :</strong> 420 €/m³</p>
+                <p><strong>Prix total :</strong> 84 000 €</p>
+                <p><strong>Localisation :</strong> Bordeaux</p>
+                <p><strong>Délai livraison :</strong> 5 jours</p>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-primary-custom btn-sm">Acheter</button>
+                    <button class="btn btn-outline-secondary btn-sm">Négocier</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="feature-card">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="feature-icon">⚙️</div>
+                    <span class="badge bg-secondary">Occasion</span>
+                </div>
+                <h3>Échafaudage modulaire - 500m²</h3>
+                <p><strong>Vendeur :</strong> Location Pro</p>
+                <p><strong>Prix unitaire :</strong> 12 €/m²</p>
+                <p><strong>Prix total :</strong> 6 000 €</p>
+                <p><strong>Localisation :</strong> Marseille</p>
+                <p><strong>Délai livraison :</strong> 3 jours</p>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-primary-custom btn-sm">Acheter</button>
+                    <button class="btn btn-outline-secondary btn-sm">Négocier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">📦 Vos ressources en stock</h5>
+                        <button class="btn btn-secondary-custom btn-sm">Vendre sur le marché</button>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-3">
+                            <p class="mb-1">🧱 <strong>Briques</strong></p>
+                            <p>8 500 unités</p>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="mb-1">🪨 <strong>Gravier</strong></p>
+                            <p>25 tonnes</p>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="mb-1">🪵 <strong>Bois</strong></p>
+                            <p>45 m³</p>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="mb-1">🏗️ <strong>Ciment</strong></p>
+                            <p>120 sacs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnel - Empire BTP{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="hero-title">👷 Mon Personnel</h1>
+                <button class="btn btn-primary-custom">+ Recruter</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="feature-card">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <div class="feature-icon">👷‍♂️</div>
+                        <h3>Équipe Maçonnerie</h3>
+                    </div>
+                    <span class="badge bg-success">Active</span>
+                </div>
+                <p><strong>Chef d'équipe :</strong> Jean Dupont</p>
+                <p><strong>Membres :</strong> 8 ouvriers</p>
+                <p><strong>Chantier :</strong> Immeuble Paris 15ème</p>
+                <p><strong>Salaire total :</strong> 18 500 €/mois</p>
+                <p><strong>Expérience :</strong> ★★★★☆ (4.2/5)</p>
+                <p><strong>Productivité :</strong> 85%</p>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-sm btn-secondary-custom">Détails</button>
+                    <button class="btn btn-sm btn-outline-secondary">Réaffecter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="feature-card">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <div class="feature-icon">🚜</div>
+                        <h3>Équipe Terrassement</h3>
+                    </div>
+                    <span class="badge bg-success">Active</span>
+                </div>
+                <p><strong>Chef d'équipe :</strong> Marie Martin</p>
+                <p><strong>Membres :</strong> 6 ouvriers + 2 chauffeurs</p>
+                <p><strong>Chantier :</strong> Route D12 Bordeaux</p>
+                <p><strong>Salaire total :</strong> 15 800 €/mois</p>
+                <p><strong>Expérience :</strong> ★★★★★ (4.8/5)</p>
+                <p><strong>Productivité :</strong> 92%</p>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-sm btn-secondary-custom">Détails</button>
+                    <button class="btn btn-sm btn-outline-secondary">Réaffecter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="feature-card">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <div class="feature-icon">⚡</div>
+                        <h3>Équipe Électricité</h3>
+                    </div>
+                    <span class="badge bg-warning text-dark">En formation</span>
+                </div>
+                <p><strong>Chef d'équipe :</strong> Pierre Durand</p>
+                <p><strong>Membres :</strong> 4 électriciens</p>
+                <p><strong>Chantier :</strong> Résidence Lyon 3ème</p>
+                <p><strong>Salaire total :</strong> 12 400 €/mois</p>
+                <p><strong>Expérience :</strong> ★★★☆☆ (3.5/5)</p>
+                <p><strong>Productivité :</strong> 70%</p>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-sm btn-secondary-custom">Détails</button>
+                    <button class="btn btn-sm btn-outline-secondary">Former</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="feature-card">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <div class="feature-icon">💼</div>
+                        <h3>Staff Administratif</h3>
+                    </div>
+                    <span class="badge bg-info">Bureau</span>
+                </div>
+                <p><strong>Responsable :</strong> Sophie Leblanc</p>
+                <p><strong>Membres :</strong> 3 assistants + 1 comptable</p>
+                <p><strong>Localisation :</strong> Siège social</p>
+                <p><strong>Salaire total :</strong> 14 200 €/mois</p>
+                <p><strong>Expérience :</strong> ★★★★☆ (4.0/5)</p>
+                <p><strong>Efficacité :</strong> 88%</p>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-sm btn-secondary-custom">Détails</button>
+                    <button class="btn btn-sm btn-outline-secondary">Gérer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5>📊 Ressources humaines</h5>
+                    <div class="row mt-3">
+                        <div class="col-md-3">
+                            <p class="mb-1"><strong>Total employés</strong></p>
+                            <h3 style="color: var(--accent);">127</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="mb-1"><strong>Masse salariale/mois</strong></p>
+                            <h3 style="color: var(--accent);">245K €</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="mb-1"><strong>Productivité moyenne</strong></p>
+                            <h3 style="color: var(--accent);">84%</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="mb-1"><strong>Satisfaction</strong></p>
+                            <h3 style="color: var(--accent);">4.1/5</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

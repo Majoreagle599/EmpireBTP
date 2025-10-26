@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matériel - Empire BTP{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="hero-title">🚜 Mon Matériel</h1>
+                <button class="btn btn-primary-custom">+ Acheter du matériel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="feature-card">
+                <div class="feature-icon">🏗️</div>
+                <h3>Grue mobile 50T</h3>
+                <p><strong>État :</strong> <span class="badge bg-success">Excellent</span></p>
+                <p><strong>Localisation :</strong> Chantier Paris 15ème</p>
+                <p><strong>Utilisation :</strong> 145h / 500h</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar" role="progressbar" style="width: 29%; background-color: var(--accent);"></div>
+                </div>
+                <p><strong>Valeur :</strong> 185 000 €</p>
+                <p><strong>Coût maintenance :</strong> 500 €/mois</p>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-sm btn-secondary-custom">Déplacer</button>
+                    <button class="btn btn-sm btn-outline-secondary">Entretien</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3>Camion benne 20m³</h3>
+                <p><strong>État :</strong> <span class="badge bg-warning">Moyen</span></p>
+                <p><strong>Localisation :</strong> Dépôt Lyon</p>
+                <p><strong>Utilisation :</strong> 820h / 1000h</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 82%;"></div>
+                </div>
+                <p><strong>Valeur :</strong> 45 000 €</p>
+                <p><strong>Coût maintenance :</strong> 250 €/mois</p>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-sm btn-secondary-custom">Déplacer</button>
+                    <button class="btn btn-sm btn-outline-danger">Réparer</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="feature-card">
+                <div class="feature-icon">🔨</div>
+                <h3>Bétonnière 500L</h3>
+                <p><strong>État :</strong> <span class="badge bg-success">Bon</span></p>
+                <p><strong>Localisation :</strong> Chantier Lyon 3ème</p>
+                <p><strong>Utilisation :</strong> 320h / 800h</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 40%;"></div>
+                </div>
+                <p><strong>Valeur :</strong> 8 500 €</p>
+                <p><strong>Coût maintenance :</strong> 80 €/mois</p>
+                <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-sm btn-secondary-custom">Déplacer</button>
+                    <button class="btn btn-sm btn-outline-secondary">Entretien</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5>📊 Gestion du parc matériel</h5>
+                    <div class="row mt-3">
+                        <div class="col-md-3">
+                            <p class="mb-1"><strong>Total équipements</strong></p>
+                            <h3 style="color: var(--accent);">12</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="mb-1"><strong>Valeur totale</strong></p>
+                            <h3 style="color: var(--accent);">425K €</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="mb-1"><strong>En utilisation</strong></p>
+                            <h3 style="color: var(--accent);">8</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="mb-1"><strong>Coût maintenance/mois</strong></p>
+                            <h3 style="color: var(--accent);">3 450 €</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
