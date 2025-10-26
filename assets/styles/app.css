@@ -376,3 +376,95 @@ body {
     color: var(--accent);
     font-weight: bold;
 }
+
+/* ========================================
+   DROPDOWN MATERIEL - DESIGN PROFESSIONNEL
+   ======================================== */
+
+/* Style du dropdown Matériel dans la navbar */
+#materielDropdown {
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+#materielDropdown:hover {
+    color: #f39c12 !important;
+    transform: translateY(-2px);
+}
+
+/* Menu dropdown Matériel */
+.navbar .dropdown-menu[aria-labelledby="materielDropdown"] {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    border: 2px solid #f39c12;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(243, 156, 18, 0.4);
+    padding: 0.5rem;
+    min-width: 280px;
+    margin-top: 0.5rem;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Items du dropdown Matériel */
+.navbar .dropdown-menu[aria-labelledby="materielDropdown"] .dropdown-item {
+    color: #ecf0f1;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    background: transparent;
+}
+
+.navbar .dropdown-menu[aria-labelledby="materielDropdown"] .dropdown-item:hover {
+    background: linear-gradient(90deg, rgba(243, 156, 18, 0.3) 0%, rgba(243, 156, 18, 0.1) 100%);
+    color: #f39c12;
+    border-left-color: #f39c12;
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.2);
+}
+
+.navbar .dropdown-menu[aria-labelledby="materielDropdown"] .dropdown-item:active {
+    background: linear-gradient(90deg, rgba(243, 156, 18, 0.5) 0%, rgba(243, 156, 18, 0.2) 100%);
+    color: #ffffff;
+}
+
+/* Emoji dans le dropdown */
+.navbar .dropdown-menu[aria-labelledby="materielDropdown"] .dropdown-item::before {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.navbar .dropdown-menu[aria-labelledby="materielDropdown"] .dropdown-item:hover::before {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Mode sombre */
+[data-theme="dark"] .navbar .dropdown-menu[aria-labelledby="materielDropdown"] {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-color: #f39c12;
+    box-shadow: 0 10px 30px rgba(243, 156, 18, 0.6);
+}
+
+[data-theme="dark"] .navbar .dropdown-menu[aria-labelledby="materielDropdown"] .dropdown-item {
+    color: #f5f5dc;
+}
+
+[data-theme="dark"] .navbar .dropdown-menu[aria-labelledby="materielDropdown"] .dropdown-item:hover {
+    background: linear-gradient(90deg, rgba(243, 156, 18, 0.4) 0%, rgba(243, 156, 18, 0.15) 100%);
+    color: #f39c12;
+}

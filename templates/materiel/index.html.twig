@@ -1,103 +1,214 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Matériel - Empire BTP{% endblock %}
+{% block title %}Catalogue Matériel - Empire BTP{% endblock %}
 
 {% block body %}
-<div class="container my-5">
+<div class="container-fluid my-5">
     <div class="row">
         <div class="col-12">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h1 class="hero-title">🚜 Mon Matériel</h1>
-                <button class="btn btn-primary-custom">+ Acheter du matériel</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4 mb-4">
-            <div class="feature-card">
-                <div class="feature-icon">🏗️</div>
-                <h3>Grue mobile 50T</h3>
-                <p><strong>État :</strong> <span class="badge bg-success">Excellent</span></p>
-                <p><strong>Localisation :</strong> Chantier Paris 15ème</p>
-                <p><strong>Utilisation :</strong> 145h / 500h</p>
-                <div class="progress mb-3">
-                    <div class="progress-bar" role="progressbar" style="width: 29%; background-color: var(--accent);"></div>
-                </div>
-                <p><strong>Valeur :</strong> 185 000 €</p>
-                <p><strong>Coût maintenance :</strong> 500 €/mois</p>
-                <div class="d-flex gap-2 mt-3">
-                    <button class="btn btn-sm btn-secondary-custom">Déplacer</button>
-                    <button class="btn btn-sm btn-outline-secondary">Entretien</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="feature-card">
-                <div class="feature-icon">🚚</div>
-                <h3>Camion benne 20m³</h3>
-                <p><strong>État :</strong> <span class="badge bg-warning">Moyen</span></p>
-                <p><strong>Localisation :</strong> Dépôt Lyon</p>
-                <p><strong>Utilisation :</strong> 820h / 1000h</p>
-                <div class="progress mb-3">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 82%;"></div>
-                </div>
-                <p><strong>Valeur :</strong> 45 000 €</p>
-                <p><strong>Coût maintenance :</strong> 250 €/mois</p>
-                <div class="d-flex gap-2 mt-3">
-                    <button class="btn btn-sm btn-secondary-custom">Déplacer</button>
-                    <button class="btn btn-sm btn-outline-danger">Réparer</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="feature-card">
-                <div class="feature-icon">🔨</div>
-                <h3>Bétonnière 500L</h3>
-                <p><strong>État :</strong> <span class="badge bg-success">Bon</span></p>
-                <p><strong>Localisation :</strong> Chantier Lyon 3ème</p>
-                <p><strong>Utilisation :</strong> 320h / 800h</p>
-                <div class="progress mb-3">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 40%;"></div>
-                </div>
-                <p><strong>Valeur :</strong> 8 500 €</p>
-                <p><strong>Coût maintenance :</strong> 80 €/mois</p>
-                <div class="d-flex gap-2 mt-3">
-                    <button class="btn btn-sm btn-secondary-custom">Déplacer</button>
-                    <button class="btn btn-sm btn-outline-secondary">Entretien</button>
+                <h1 class="hero-title">🏗️ Catalogue Matériel</h1>
+                <div>
+                    <span class="badge bg-primary fs-5">{{ machines|length }} machines disponibles</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row mt-4">
+    {# Filtres #}
+    <div class="row mb-4">
         <div class="col-12">
-            <div class="card">
+            <div class="card shadow-sm">
                 <div class="card-body">
-                    <h5>📊 Gestion du parc matériel</h5>
-                    <div class="row mt-3">
-                        <div class="col-md-3">
-                            <p class="mb-1"><strong>Total équipements</strong></p>
-                            <h3 style="color: var(--accent);">12</h3>
+                    <form method="get" action="{{ path('app_materiel') }}" id="filterForm">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label for="secteur" class="form-label">� Secteur</label>
+                                <select class="form-select" name="secteur" id="secteur" onchange="document.getElementById('filterForm').submit()">
+                                    <option value="">Tous les secteurs</option>
+                                    {% for secteur in secteurs %}
+                                        <option value="{{ secteur }}" {% if currentSecteur == secteur %}selected{% endif %}>
+                                            {{ secteur }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <label for="categorie" class="form-label">📦 Catégorie</label>
+                                <select class="form-select" name="categorie" id="categorie" onchange="document.getElementById('filterForm').submit()">
+                                    <option value="">Toutes les catégories</option>
+                                    {% for categorie in categories %}
+                                        <option value="{{ categorie }}" {% if currentCategorie == categorie %}selected{% endif %}>
+                                            {{ categorie }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <label for="marque" class="form-label">🏷️ Marque</label>
+                                <select class="form-select" name="marque" id="marque" onchange="document.getElementById('filterForm').submit()">
+                                    <option value="">Toutes les marques</option>
+                                    {% for marque in marques %}
+                                        <option value="{{ marque }}" {% if currentMarque == marque %}selected{% endif %}>
+                                            {{ marque }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-3 d-flex align-items-end">
+                                <a href="{{ path('app_materiel') }}" class="btn btn-outline-secondary w-100">
+                                    ↺ Réinitialiser
+                                </a>
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <p class="mb-1"><strong>Valeur totale</strong></p>
-                            <h3 style="color: var(--accent);">425K €</h3>
-                        </div>
-                        <div class="col-md-3">
-                            <p class="mb-1"><strong>En utilisation</strong></p>
-                            <h3 style="color: var(--accent);">8</h3>
-                        </div>
-                        <div class="col-md-3">
-                            <p class="mb-1"><strong>Coût maintenance/mois</strong></p>
-                            <h3 style="color: var(--accent);">3 450 €</h3>
-                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Tableau des machines #}
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped align-middle" id="machinesTable">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Secteur</th>
+                                    <th>Catégorie</th>
+                                    <th>Machine</th>
+                                    <th>Marque / Modèle</th>
+                                    <th>Puissance</th>
+                                    <th>Capacité</th>
+                                    <th>Consommation</th>
+                                    <th class="text-end">Prix Achat</th>
+                                    <th class="text-end">Location/jour</th>
+                                    <th class="text-end">Entretien/mois</th>
+                                    <th class="text-center">Niveau</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for machine in machines %}
+                                <tr>
+                                    <td>
+                                        <span class="badge 
+                                            {% if machine.secteur == 'Voirie' %}bg-success
+                                            {% elseif machine.secteur == 'Carrière' %}bg-warning text-dark
+                                            {% elseif machine.secteur == 'Transport' %}bg-info text-dark
+                                            {% elseif machine.secteur == 'Démolition' %}bg-danger
+                                            {% endif %}">
+                                            {{ machine.secteur }}
+                                        </span>
+                                    </td>
+                                    <td><small class="text-muted">{{ machine.categorie }}</small></td>
+                                    <td><strong>{{ machine.nom }}</strong></td>
+                                    <td>
+                                        <div class="text-primary fw-bold">{{ machine.marque }}</div>
+                                        <small class="text-muted">{{ machine.modele }}</small>
+                                    </td>
+                                    <td>
+                                        {% if machine.puissance %}
+                                            <div>
+                                                <span class="badge bg-secondary">{{ (machine.puissance * 1.36)|round }} CV</span>
+                                            </div>
+                                            <small class="text-muted">({{ machine.puissance }} kW)</small>
+                                        {% else %}
+                                            <span class="text-muted">-</span>
+                                        {% endif %}
+                                    </td>
+                                    <td><small>{{ machine.capacite ?? '-' }}</small></td>
+                                    <td><small>{{ machine.consommation ?? '-' }}</small></td>
+                                    <td class="text-end">
+                                        <strong class="text-success">{{ machine.prixAchat|number_format(0, ',', ' ') }} €</strong>
+                                    </td>
+                                    <td class="text-end">
+                                        <span class="text-info">{{ machine.prixLocation|number_format(0, ',', ' ') }} €</span>
+                                    </td>
+                                    <td class="text-end">
+                                        <span class="text-warning">{{ machine.coutEntretien|number_format(0, ',', ' ') }} €</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="badge bg-dark">Niv. {{ machine.niveauRequis }}</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="btn-group btn-group-sm" role="group">
+                                            <button type="button" class="btn btn-success" title="Acheter">
+                                                💰
+                                            </button>
+                                            <button type="button" class="btn btn-info" title="Louer">
+                                                📅
+                                            </button>
+                                            <button type="button" class="btn btn-secondary" title="Détails">
+                                                👁️
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr>
+                                    <td colspan="12" class="text-center text-muted py-5">
+                                        <h4>Aucune machine trouvée</h4>
+                                        <p>Essayez de modifier vos filtres</p>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .table-responsive {
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+    
+    .table thead {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    
+    #machinesTable tbody tr:hover {
+        background-color: rgba(13, 110, 253, 0.1);
+        cursor: pointer;
+    }
+    
+    .btn-group-sm > .btn {
+        font-size: 1rem;
+    }
+</style>
+
+<script>
+    // Recherche en temps réel dans le tableau
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ajouter une barre de recherche
+        const cardBody = document.querySelector('.table-responsive').closest('.card-body');
+        const searchInput = document.createElement('input');
+        searchInput.type = 'text';
+        searchInput.className = 'form-control mb-3';
+        searchInput.placeholder = '🔍 Rechercher dans le tableau (nom, marque, modèle...)';
+        cardBody.insertBefore(searchInput, cardBody.firstChild);
+        
+        searchInput.addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#machinesTable tbody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+    });
+</script>
 {% endblock %}

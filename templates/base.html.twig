@@ -31,8 +31,17 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('app_chantiers') }}">🏗️ Mes Chantiers</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('app_materiel') }}">🚜 Matériel</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="materielDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    🚜 Matériel
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="materielDropdown">
+                                    <li><a class="dropdown-item" href="{{ path('app_materiel') }}">� Catalogue Matériel</a></li>
+                                    <li><a class="dropdown-item" href="#">🏗️ Mon Parc Matériel</a></li>
+                                    <li><a class="dropdown-item" href="#">📅 Locations en cours</a></li>
+                                    <li><a class="dropdown-item" href="#">🔧 Maintenance & Réparations</a></li>
+                                    <li><a class="dropdown-item" href="#">📊 Statistiques Matériel</a></li>
+                                </ul>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('app_personnel') }}">👷 Personnel</a>
@@ -79,9 +88,10 @@
                                 🏗️ Secteurs d'activité
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="secteursDropdown">
-                                <li><a class="dropdown-item" href="#">🛣️ Voirie</a></li>
-                                <li><a class="dropdown-item" href="#">💥 Démolition</a></li>
-                                <li><a class="dropdown-item" href="#">⛰️ Carrière</a></li>
+                                <li><a class="dropdown-item" href="{{ path('app_secteur_voirie') }}">🛣️ Voirie</a></li>
+                                <li><a class="dropdown-item" href="{{ path('app_secteur_carriere') }}">⛰️ Carrière</a></li>
+                                <li><a class="dropdown-item" href="{{ path('app_secteur_demolition') }}">💥 Démolition</a></li>
+                                <li><a class="dropdown-item" href="{{ path('app_secteur_transport') }}">🚚 Transport</a></li>
                             </ul>
                         </div>
                     </div>
