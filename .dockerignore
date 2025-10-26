@@ -1,0 +1,10 @@
+.git
+.env.local
+.env.test
+var/
+vendor/
+node_modules/
+public/build/
+.idea/
+.vscode/
+*.log
