@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Règlement - Empire BTP{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card">
+                <div class="card-body p-5">
+                    <h1 class="text-center mb-4" style="color: var(--primary);">📜 Règlement du jeu EmpireBTP</h1>
+                    
+                    <p class="lead text-center mb-5" style="color: var(--text-light);">
+                        <strong>Objectif du jeu :</strong> Développer ton empire dans le secteur du BTP (Bâtiment et Travaux Publics) en gérant ressources, chantiers et compétitions entre joueurs.
+                    </p>
+
+                    <div class="reglement-section">
+                        <h3>📝 Article 1 : Inscription et joueurs</h3>
+                        <ul>
+                            <li>Chaque joueur doit créer un compte avant de commencer.</li>
+                            <li>Un joueur ne peut avoir qu'un seul compte actif.</li>
+                            <li>Les pseudos offensants ou inadaptés sont interdits.</li>
+                        </ul>
+                    </div>
+
+                    <div class="reglement-section">
+                        <h3>⚙️ Article 2 : Fonctionnement général</h3>
+                        <ul>
+                            <li>Le jeu est basé sur la gestion de projets BTP : acquisition de ressources, recrutement, planification de chantiers.</li>
+                            <li>Les interactions incluent : création d'entreprises, gestion de personnel, soumission à des appels d'offres, réalisation des travaux, gestion des finances.</li>
+                            <li>Chaque action consomme des ressources virtuelles (argent, énergie, matériaux, etc.).</li>
+                        </ul>
+                    </div>
+
+                    <div class="reglement-section">
+                        <h3>🎮 Article 3 : Règles de jeu</h3>
+                        <ul>
+                            <li>Les chantiers ont des délais limites à respecter ; un retard impacte la réputation et le classement.</li>
+                            <li><strong>Toute tricherie (script, multi-comptes, exploitation de bugs) est strictement interdite et sanctionnée par un bannissement.</strong></li>
+                            <li>Les joueurs peuvent former des alliances pour décrocher de plus grands projets.</li>
+                            <li>Les marchés se régulent par l'offre et la demande ; prix, main-d'œuvre et matériaux varient selon la concurrence.</li>
+                        </ul>
+                    </div>
+
+                    <div class="reglement-section">
+                        <h3>🏆 Article 4 : Interactions et compétition</h3>
+                        <ul>
+                            <li>Les joueurs peuvent s'affronter pour décrocher des contrats, participer à des enchères ou des concours de rapidité/qualité.</li>
+                            <li>Les classements sont mis à jour chaque semaine selon performance, bénéfices et réputation.</li>
+                            <li>Les alliances peuvent être dissoutes à tout moment, mais des pénalités peuvent s'appliquer.</li>
+                        </ul>
+                    </div>
+
+                    <div class="reglement-section">
+                        <h3>🤝 Article 5 : Respect et comportement</h3>
+                        <ul>
+                            <li>Les joueurs s'engagent à respecter les autres dans le tchat et sur les forums.</li>
+                            <li><strong>Tout comportement toxique, insultes ou harcèlement entraîne des sanctions (avertissement, exclusion temporaire ou définitive).</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="reglement-section">
+                        <h3>🔧 Article 6 : Modifications du règlement</h3>
+                        <ul>
+                            <li>L'équipe d'administration peut modifier le règlement à tout moment pour le bon fonctionnement du jeu.</li>
+                            <li>Les joueurs sont informés des changements majeurs via une annonce officielle.</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert alert-info mt-5 text-center">
+                        <strong>ℹ️ En vous inscrivant et en jouant à EmpireBTP, vous acceptez ce règlement dans son intégralité.</strong>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        {% if app.user %}
+                            <a href="{{ path('app_account') }}" class="btn btn-primary-custom btn-custom">Aller sur mon compte</a>
+                        {% else %}
+                            <a href="{{ path('app_register') }}" class="btn btn-primary-custom btn-custom">📝 S'inscrire maintenant</a>
+                            <a href="{{ path('app_login') }}" class="btn btn-secondary-custom btn-custom">🔑 Se connecter</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -18,3 +18,34 @@ import '@popperjs/core';
 import './styles/app.css';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+
+// Gestion du mode sombre
+document.addEventListener('DOMContentLoaded', function() {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const htmlElement = document.documentElement;
+    
+    // Vérifier la préférence sauvegardée
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        htmlElement.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
+    }
+    
+    // Toggle au clic
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', function() {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+    }
+    
+    function updateIcon(theme) {
+        if (darkModeToggle) {
+            darkModeToggle.innerHTML = theme === 'dark' ? '☀️' : '🌙';
+        }
+    }
+});

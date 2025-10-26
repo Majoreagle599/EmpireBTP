@@ -3,14 +3,7 @@ doctrine_migrations:
     migrations_paths:
         'DoctrineMigrations': '%kernel.project_dir%/migrations'
     
-    # PROTECTION: Empêche la génération automatique de migrations
-    enable_profiler: false
-    
-    # FORCE: Utilisation uniquement d'InitialSchema.php
+    # Configuration simple et fonctionnelle
     all_or_nothing: true
     check_database_platform: false
-    
-    # SÉCURITÉ: Configuration verrouillée
     organize_migrations: false
-    connection: default
-    em: default
