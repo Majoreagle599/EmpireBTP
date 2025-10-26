@@ -43,32 +43,47 @@
                         {% endif %}
                     </ul>
                     
-                    <div class="d-flex align-items-center">
-                        {# Bouton mode sombre - toujours visible #}
-                        <button id="darkModeToggle" class="btn btn-outline-light btn-sm me-2" title="Changer de thème">🌙</button>
+                    <div class="d-flex flex-column align-items-end">
+                        {# Première ligne: Mode sombre et Utilisateur #}
+                        <div class="d-flex align-items-center mb-2">
+                            {# Bouton mode sombre - toujours visible #}
+                            <button id="darkModeToggle" class="btn btn-outline-light btn-sm me-2" title="Changer de thème">🌙</button>
+                            
+                            {% if app.user %}
+                                <div class="dropdown me-2">
+                                    <a class="btn btn-outline-light btn-sm dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                        👤 {{ app.user.email }}
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                        <li><a class="dropdown-item" href="#">👤 Mon Profil</a></li>
+                                        <li><a class="dropdown-item" href="#">🎯 Objectifs/Missions</a></li>
+                                        <li><a class="dropdown-item" href="#">📊 Statistiques</a></li>
+                                        <li><a class="dropdown-item" href="#">🏆 Mes Succès/Badges</a></li>
+                                        <li><a class="dropdown-item" href="#">📈 Tableau de bord</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">🔐 Changer mot de passe</a></li>
+                                        <li><a class="dropdown-item" href="#">⚙️ Paramètres</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="{{ path('app_logout') }}">🚪 Déconnexion</a></li>
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <a class="btn btn-outline-light btn-sm me-2" href="{{ path('app_login') }}">🔑 Connexion</a>
+                                <a class="btn btn-warning btn-sm" href="{{ path('app_register') }}">✨ Inscription</a>
+                            {% endif %}
+                        </div>
                         
-                        {% if app.user %}
-                            <div class="dropdown me-2">
-                                <a class="btn btn-outline-light btn-sm dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                    👤 {{ app.user.email }}
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                    <li><a class="dropdown-item" href="#">👤 Mon Profil</a></li>
-                                    <li><a class="dropdown-item" href="#">🎯 Objectifs/Missions</a></li>
-                                    <li><a class="dropdown-item" href="#">📊 Statistiques</a></li>
-                                    <li><a class="dropdown-item" href="#">🏆 Mes Succès/Badges</a></li>
-                                    <li><a class="dropdown-item" href="#">📈 Tableau de bord</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">🔐 Changer mot de passe</a></li>
-                                    <li><a class="dropdown-item" href="#">⚙️ Paramètres</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="{{ path('app_logout') }}">🚪 Déconnexion</a></li>
-                                </ul>
-                            </div>
-                        {% else %}
-                            <a class="btn btn-outline-light btn-sm me-2" href="{{ path('app_login') }}">🔑 Connexion</a>
-                            <a class="btn btn-warning btn-sm" href="{{ path('app_register') }}">✨ Inscription</a>
-                        {% endif %}
+                        {# Deuxième ligne: Dropdown Secteurs d'activité #}
+                        <div class="dropdown">
+                            <button class="btn btn-secteurs dropdown-toggle" type="button" id="secteursDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                🏗️ Secteurs d'activité
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="secteursDropdown">
+                                <li><a class="dropdown-item" href="#">🛣️ Voirie</a></li>
+                                <li><a class="dropdown-item" href="#">💥 Démolition</a></li>
+                                <li><a class="dropdown-item" href="#">⛰️ Carrière</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

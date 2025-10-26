@@ -99,6 +99,51 @@ body {
     color: white;
 }
 
+/* Bouton Secteurs d'activité - Design vert voyant */
+.btn-secteurs {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    border: 2px solid #f5f5dc;
+    color: #f5f5dc !important;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 0.6rem 1.8rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.5);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-secteurs:hover {
+    background: linear-gradient(135deg, #229954 0%, #1e8449 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(39, 174, 96, 0.7);
+    border-color: #ffffff;
+    color: #ffffff !important;
+}
+
+.btn-secteurs:focus,
+.btn-secteurs:active {
+    box-shadow: 0 0 0 0.25rem rgba(39, 174, 96, 0.5);
+    color: #f5f5dc !important;
+}
+
+.btn-secteurs .dropdown-toggle::after {
+    margin-left: 0.6rem;
+}
+
+[data-theme="dark"] .btn-secteurs {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    border-color: #f5f5dc;
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.6);
+}
+
+[data-theme="dark"] .btn-secteurs:hover {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.8);
+    border-color: #ffffff;
+}
+
 /* Hero Section */
 .hero-section {
     background-color: var(--card-bg);
