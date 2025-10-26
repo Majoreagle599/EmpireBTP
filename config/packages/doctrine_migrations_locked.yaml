@@ -12,5 +12,3 @@ doctrine_migrations:
     
     # SÉCURITÉ: Configuration verrouillée
     organize_migrations: false
-    connection: default
-    em: default
