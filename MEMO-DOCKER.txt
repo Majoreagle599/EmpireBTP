@@ -1,0 +1,126 @@
+═══════════════════════════════════════════════════════════════
+  🐳 MÉMO DOCKER - EMPIRE BTP
+═══════════════════════════════════════════════════════════════
+
+🚀 DÉMARRER DOCKER
+─────────────────────────────────────────────────────────────
+docker-compose up -d                    # Démarrer tous les services
+.\docker-start.bat                      # OU utiliser le script
+
+🛑 ARRÊTER DOCKER
+─────────────────────────────────────────────────────────────
+docker-compose down                     # Arrêter tous les services
+docker-compose stop                     # Arrêter sans supprimer
+
+🔄 REDÉMARRER DOCKER
+─────────────────────────────────────────────────────────────
+docker-compose restart                  # Redémarrer tous les services
+.\docker-restart-clean.bat              # Redémarrage complet + nettoyage
+
+🔍 VOIR L'ÉTAT DES CONTENEURS
+─────────────────────────────────────────────────────────────
+docker-compose ps                       # Voir tous les conteneurs
+docker ps                               # Voir les conteneurs actifs
+docker ps -a                            # Voir tous les conteneurs (même arrêtés)
+
+📊 VOIR LES LOGS
+─────────────────────────────────────────────────────────────
+docker-compose logs                     # Tous les logs
+docker-compose logs php                 # Logs du conteneur PHP
+docker-compose logs -f                  # Suivre les logs en temps réel
+docker-compose logs --tail=50           # 50 dernières lignes
+
+🔨 RECONSTRUIRE LES IMAGES
+─────────────────────────────────────────────────────────────
+docker-compose build                    # Reconstruire toutes les images
+docker-compose build --no-cache         # Reconstruire sans cache
+docker-compose up -d --build            # Reconstruire et démarrer
+
+💻 ACCÉDER AUX CONTENEURS
+─────────────────────────────────────────────────────────────
+docker-compose exec php bash            # Terminal dans conteneur PHP
+docker-compose exec postgres bash       # Terminal dans conteneur PostgreSQL
+docker-compose exec nginx sh            # Terminal dans conteneur Nginx
+
+🗄️ COMMANDES SYMFONY DANS DOCKER
+─────────────────────────────────────────────────────────────
+docker-compose exec php php bin/console cache:clear
+docker-compose exec php php bin/console doctrine:migrations:migrate
+docker-compose exec php php bin/console app:create-admin-user
+docker-compose exec php composer install
+docker-compose exec php npm install
+docker-compose exec php npm run build
+
+🗃️ COMMANDES BASE DE DONNÉES
+─────────────────────────────────────────────────────────────
+# Créer la base
+docker-compose exec php php bin/console doctrine:database:create
+
+# Exécuter les migrations
+docker-compose exec php php bin/console doctrine:migrations:migrate
+
+# Accéder à PostgreSQL directement
+docker-compose exec postgres psql -U empirebtp_user -d empirebtp
+
+# Importer un fichier SQL
+Get-Content fichier.sql | docker-compose exec -T postgres psql -U empirebtp_user -d empirebtp
+
+🧹 NETTOYER DOCKER
+─────────────────────────────────────────────────────────────
+docker system prune                     # Nettoyer images/containers inutilisés
+docker system prune -a                  # Nettoyer TOUT (attention!)
+docker volume prune                     # Nettoyer les volumes inutilisés
+docker-compose down -v                  # Arrêter et supprimer les volumes
+
+🌐 ACCÈS AUX SERVICES
+─────────────────────────────────────────────────────────────
+Site web:        http://localhost:8001
+pgAdmin:         http://localhost:5051
+Mailpit:         http://localhost:8026
+Traefik:         http://localhost:8091
+
+🔐 IDENTIFIANTS
+─────────────────────────────────────────────────────────────
+PostgreSQL:
+  - Host: localhost:5433 (externe) ou postgres:5432 (interne)
+  - User: empirebtp_user
+  - Pass: empirebtp_pass
+  - DB:   empirebtp
+
+pgAdmin:
+  - Email: admin@empirebtp.com
+  - Pass:  admin123
+
+Admin site:
+  - Email: admin@admin.com
+  - Pass:  123456
+
+⚡ SCRIPTS RAPIDES DISPONIBLES
+─────────────────────────────────────────────────────────────
+.\docker-start.bat                      # Démarrer Docker
+.\docker-restart-clean.bat              # Redémarrage complet
+.\docker-setup-db.bat                   # Recréer la base uniquement
+.\switch-to-docker.bat                  # Basculer sur Docker
+.\switch-to-xampp.bat                   # Basculer sur XAMPP
+
+🔧 DÉPANNAGE
+─────────────────────────────────────────────────────────────
+# Si les conteneurs ne démarrent pas
+docker-compose down
+docker system prune -f
+docker-compose up -d --build
+
+# Si erreur "port déjà utilisé"
+docker-compose down
+netstat -ano | findstr :8001           # Trouver le processus
+taskkill /PID [numéro] /F              # Tuer le processus
+
+# Si problème de base de données
+docker-compose exec php php bin/console doctrine:database:drop --force
+docker-compose exec php php bin/console doctrine:database:create
+docker-compose exec php php bin/console doctrine:migrations:migrate --no-interaction
+
+═══════════════════════════════════════════════════════════════
+  💡 Astuce: Tous les fichiers du projet sont synchronisés
+  entre Windows et Docker en temps réel !
+═══════════════════════════════════════════════════════════════
