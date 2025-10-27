@@ -4,7 +4,7 @@
 
 {% block body %}
 <!-- Navbar secondaire spécifique au secteur Démolition -->
-<nav class="navbar navbar-expand-lg navbar-demolition sticky-top shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-secteur sticky-top shadow-sm">
     <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">💥 Secteur Démolition</span>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDemolition">
@@ -40,10 +40,9 @@
         <div class="col-12 text-center">
             <div class="construction-banner demolition p-5 rounded shadow-lg">
                 <div class="construction-icon mb-4">
-                    🚧
+                    �
                 </div>
                 <h1 class="display-3 mb-3">💥 Secteur Démolition</h1>
-                <h2 class="text-muted mb-4">Page en construction</h2>
                 
                 <div class="row mt-5">
                     <div class="col-md-4 mb-3">
@@ -67,10 +66,10 @@
                 </div>
                 
                 <div class="mt-5">
-                    <a href="{{ path('app_accueil') }}" class="btn btn-primary btn-lg me-3">
+                    <a href="{{ path('app_accueil') }}" class="btn btn-custom btn-primary-custom btn-lg me-3">
                         🏠 Retour à l'accueil
                     </a>
-                    <a href="{{ path('app_materiel') }}" class="btn btn-success btn-lg">
+                    <a href="{{ path('app_materiel') }}" class="btn btn-custom btn-secondary-custom btn-lg">
                         📋 Voir le catalogue complet
                     </a>
                 </div>
@@ -80,20 +79,20 @@
 </div>
 
 <style>
-    /* Navbar Démolition - Rouge */
-    .navbar-demolition {
-        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-        border-bottom: 3px solid #f5f5dc;
+    /* Navbar Secteur - Thème Duffus */
+    .navbar-secteur {
+        background: var(--bg-secondary);
+        border-bottom: 3px solid var(--accent-primary);
     }
     
-    .navbar-demolition .navbar-brand {
-        color: white;
+    .navbar-secteur .navbar-brand {
+        color: var(--text-primary);
         font-weight: bold;
         font-size: 1.3rem;
     }
     
-    .navbar-demolition .nav-link {
-        color: rgba(255, 255, 255, 0.9);
+    .navbar-secteur .nav-link {
+        color: var(--text-secondary);
         font-weight: 500;
         padding: 0.5rem 1rem;
         margin: 0 0.2rem;
@@ -101,21 +100,23 @@
         transition: all 0.3s ease;
     }
     
-    .navbar-demolition .nav-link:hover {
-        background: rgba(255, 255, 255, 0.2);
-        color: white;
+    .navbar-secteur .nav-link:hover {
+        background: var(--accent-primary);
+        color: var(--bg-main);
         transform: translateY(-2px);
+        box-shadow: 0 0 15px var(--accent-glow);
     }
     
-    .navbar-demolition .nav-link.active {
-        background: rgba(255, 255, 255, 0.3);
-        color: white;
+    .navbar-secteur .nav-link.active {
+        background: var(--accent-primary);
+        color: var(--bg-main);
         font-weight: bold;
     }
     
     .construction-banner.demolition {
-        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-        color: white;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        border: 2px solid var(--border-primary);
     }
     
     .construction-icon {
@@ -129,13 +130,20 @@
     }
     
     .feature-box {
-        background: rgba(255, 255, 255, 0.2);
+        background: var(--bg-main);
         backdrop-filter: blur(10px);
-        border: 2px solid rgba(255, 255, 255, 0.3);
+        border: 2px solid var(--border-primary);
+        transition: all 0.3s ease;
+    }
+    
+    .feature-box:hover {
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 20px var(--accent-glow);
+        transform: translateY(-5px);
     }
     
     .feature-box h3 {
-        color: white;
+        color: var(--accent-primary);
         font-size: 1.5rem;
         margin-bottom: 0.5rem;
     }

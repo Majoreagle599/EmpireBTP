@@ -61,12 +61,24 @@ body::before {
 .navbar-custom {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1040;
   background: rgba(10, 10, 10, 0.98);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-primary);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   padding: 1rem 0;
+}
+
+/* Dropdown menu doit être au-dessus de tout */
+.navbar-custom .dropdown-menu {
+  z-index: 9999 !important;
+  position: absolute !important;
+}
+
+/* Navbar secondaire des secteurs - z-index plus bas ET positionné sous la navbar principale */
+.navbar-secteur.sticky-top {
+  z-index: 1020;
+  top: 70px; /* Hauteur approximative de la navbar principale */
 }
 
 .navbar-brand {

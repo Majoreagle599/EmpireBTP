@@ -34,6 +34,41 @@ class SecteurController extends AbstractController
         ]);
     }
 
+    #[Route('/secteur/carriere/sites', name: 'app_secteur_carriere_sites')]
+    #[IsGranted('ROLE_USER')]
+    public function sitesExtraction(): Response
+    {
+        return $this->render('secteur/sites_extraction.html.twig', [
+            'secteur' => 'Carrière',
+        ]);
+    }
+
+    #[Route('/secteur/carriere/petite', name: 'app_secteur_carriere_petite')]
+    #[IsGranted('ROLE_USER')]
+    public function carrierePetite(MachineRepository $machineRepository): Response
+    {
+        $machines = $machineRepository->findBy(['secteur' => 'Carrière']);
+        
+        return $this->render('secteur/carriere_petite.html.twig', [
+            'machines' => $machines,
+            'secteur' => 'Carrière',
+            'taille' => 'Petite',
+        ]);
+    }
+
+    #[Route('/secteur/carriere/moyenne', name: 'app_secteur_carriere_moyenne')]
+    #[IsGranted('ROLE_USER')]
+    public function carriereMoyenne(MachineRepository $machineRepository): Response
+    {
+        $machines = $machineRepository->findBy(['secteur' => 'Carrière']);
+        
+        return $this->render('secteur/carriere_moyenne.html.twig', [
+            'machines' => $machines,
+            'secteur' => 'Carrière',
+            'taille' => 'Moyenne',
+        ]);
+    }
+
     #[Route('/secteur/demolition', name: 'app_secteur_demolition')]
     #[IsGranted('ROLE_USER')]
     public function demolition(MachineRepository $machineRepository): Response

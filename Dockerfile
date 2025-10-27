@@ -15,8 +15,12 @@ RUN apt-get update && apt-get install -y \
     pgsql \
     zip \
     intl \
+    opcache \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+# Copier la configuration OPcache
+COPY docker/php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 # Installation de Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

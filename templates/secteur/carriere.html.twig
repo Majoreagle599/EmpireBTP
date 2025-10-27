@@ -4,7 +4,7 @@
 
 {% block body %}
 <!-- Navbar secondaire spécifique au secteur Carrière -->
-<nav class="navbar navbar-expand-lg navbar-carriere sticky-top shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-secteur sticky-top shadow-sm">
     <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">⛰️ Secteur Carrière</span>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCarriere">
@@ -16,7 +16,7 @@
                     <a class="nav-link active" href="{{ path('app_secteur_carriere') }}">🏠 Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">⛏️ Sites d'extraction</a>
+                    <a class="nav-link" href="{{ path('app_secteur_carriere_sites') }}">⛏️ Sites d'extraction</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">🚜 Matériel Carrière</a>
@@ -38,12 +38,12 @@
 <div class="container my-5">
     <div class="row">
         <div class="col-12 text-center">
-            <div class="construction-banner carriere p-5 rounded shadow-lg">
+            <div class="construction-banner p-5 rounded shadow-lg">
                 <div class="construction-icon mb-4">
-                    🚧
+                    ⛰️
                 </div>
-                <h1 class="display-3 mb-3">⛰️ Secteur Carrière</h1>
-                <h2 class="text-muted mb-4">Page en construction</h2>
+                <h1 class="display-3 mb-3">Secteur Carrière</h1>
+                <h2 class="text-muted mb-4">Extraction et production de matériaux</h2>
                 
                 <div class="row mt-5">
                     <div class="col-md-4 mb-3">
@@ -67,10 +67,10 @@
                 </div>
                 
                 <div class="mt-5">
-                    <a href="{{ path('app_accueil') }}" class="btn btn-primary btn-lg me-3">
+                    <a href="{{ path('app_accueil') }}" class="btn btn-custom btn-secondary-custom btn-lg me-3">
                         🏠 Retour à l'accueil
                     </a>
-                    <a href="{{ path('app_materiel') }}" class="btn btn-success btn-lg">
+                    <a href="{{ path('app_materiel') }}" class="btn btn-custom btn-primary-custom btn-lg">
                         📋 Voir le catalogue complet
                     </a>
                 </div>
@@ -80,47 +80,49 @@
 </div>
 
 <style>
-    /* Navbar Carrière - Orange/Jaune */
-    .navbar-carriere {
-        background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
-        border-bottom: 3px solid #f5f5dc;
+    /* Navbar Carrière - Thème Duffus */
+    .navbar-secteur {
+        background: var(--bg-secondary);
+        border-bottom: 2px solid var(--border-primary);
     }
     
-    .navbar-carriere .navbar-brand {
-        color: white;
+    .navbar-secteur .navbar-brand {
+        color: var(--text-primary);
         font-weight: bold;
         font-size: 1.3rem;
     }
     
-    .navbar-carriere .nav-link {
-        color: rgba(255, 255, 255, 0.9);
+    .navbar-secteur .nav-link {
+        color: var(--text-secondary);
         font-weight: 500;
         padding: 0.5rem 1rem;
         margin: 0 0.2rem;
         border-radius: 8px;
-        transition: all 0.3s ease;
+        transition: var(--transition);
     }
     
-    .navbar-carriere .nav-link:hover {
-        background: rgba(255, 255, 255, 0.2);
-        color: white;
+    .navbar-secteur .nav-link:hover {
+        background: var(--bg-hover);
+        color: var(--accent-primary);
         transform: translateY(-2px);
     }
     
-    .navbar-carriere .nav-link.active {
-        background: rgba(255, 255, 255, 0.3);
-        color: white;
+    .navbar-secteur .nav-link.active {
+        background: var(--accent-primary);
+        color: var(--bg-main);
         font-weight: bold;
     }
     
-    .construction-banner.carriere {
-        background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
-        color: white;
+    .construction-banner {
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-primary);
+        color: var(--text-primary);
     }
     
     .construction-icon {
         font-size: 8rem;
         animation: pulse 2s infinite;
+        filter: drop-shadow(0 0 20px var(--accent-primary));
     }
     
     @keyframes pulse {
@@ -129,15 +131,25 @@
     }
     
     .feature-box {
-        background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(10px);
-        border: 2px solid rgba(255, 255, 255, 0.3);
+        background: var(--bg-tertiary);
+        border: 2px solid var(--border-primary);
+        transition: var(--transition);
+    }
+    
+    .feature-box:hover {
+        border-color: var(--accent-primary);
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px var(--accent-glow);
     }
     
     .feature-box h3 {
-        color: white;
+        color: var(--accent-primary);
         font-size: 1.5rem;
         margin-bottom: 0.5rem;
+    }
+    
+    .feature-box p {
+        color: var(--text-muted);
     }
 </style>
 {% endblock %}

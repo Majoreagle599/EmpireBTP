@@ -1,0 +1,279 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sites d'extraction - Secteur Carrière{% endblock %}
+
+{% block body %}
+<!-- Navbar secondaire Carrière -->
+<nav class="navbar navbar-expand-lg navbar-secteur sticky-top shadow-sm">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">⛰️ Secteur Carrière - Sites d'extraction</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCarriere">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCarriere">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_secteur_carriere') }}">🏠 Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('app_secteur_carriere_sites') }}">⛏️ Sites d'extraction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">🚜 Matériel Carrière</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">📦 Production</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">📊 Statistiques</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">🎯 Missions</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 mb-3">⛏️ Choisissez votre site d'extraction</h1>
+        <p class="lead text-muted">Sélectionnez une carrière pour commencer l'exploitation</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- Carrière Petite -->
+        <div class="col-md-6">
+            <a href="{{ path('app_secteur_carriere_petite') }}" class="carriere-card-link">
+                <div class="carriere-card">
+                    <div class="carriere-image-container">
+                        <img src="https://via.placeholder.com/600x400/1a1a1a/a5f3b4?text=CARRIERE+PETITE" 
+                             alt="Carrière Petite" 
+                             class="carriere-image">
+                        <div class="carriere-overlay">
+                            <div class="carriere-overlay-content">
+                                <h2 class="carriere-title">⛰️ Carrière Petite</h2>
+                                <p class="carriere-subtitle">Site d'extraction compact</p>
+                                <div class="carriere-stats mt-3">
+                                    <span class="stat-badge">📊 Capacité : Limitée</span>
+                                    <span class="stat-badge">👷 Ouvriers : 5-10</span>
+                                    <span class="stat-badge">🚜 Machines : 3-5</span>
+                                </div>
+                                <button class="btn btn-custom btn-primary-custom btn-lg mt-4">
+                                    ⛏️ Accéder au site
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Carrière Moyenne -->
+        <div class="col-md-6">
+            <a href="{{ path('app_secteur_carriere_moyenne') }}" class="carriere-card-link">
+                <div class="carriere-card">
+                    <div class="carriere-image-container">
+                        <img src="https://via.placeholder.com/600x400/1a1a1a/a5f3b4?text=CARRIERE+MOYENNE" 
+                             alt="Carrière Moyenne" 
+                             class="carriere-image">
+                        <div class="carriere-overlay">
+                            <div class="carriere-overlay-content">
+                                <h2 class="carriere-title">⛰️ Carrière Moyenne</h2>
+                                <p class="carriere-subtitle">Site d'extraction intermédiaire</p>
+                                <div class="carriere-stats mt-3">
+                                    <span class="stat-badge">📊 Capacité : Moyenne</span>
+                                    <span class="stat-badge">👷 Ouvriers : 15-25</span>
+                                    <span class="stat-badge">🚜 Machines : 8-12</span>
+                                </div>
+                                <button class="btn btn-custom btn-primary-custom btn-lg mt-4">
+                                    ⛏️ Accéder au site
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Informations supplémentaires -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="info-box p-4 rounded">
+                <h3 class="mb-3">ℹ️ À propos des sites d'extraction</h3>
+                <p class="mb-2">
+                    <strong>Carrière Petite :</strong> Idéale pour débuter, extraction de matériaux basiques avec un investissement réduit.
+                </p>
+                <p class="mb-0">
+                    <strong>Carrière Moyenne :</strong> Production accrue, possibilité d'extraire des matériaux de meilleure qualité avec plus de rentabilité.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Navbar Secteur - Thème Duffus */
+    .navbar-secteur {
+        background: var(--bg-secondary);
+        border-bottom: 3px solid var(--accent-primary);
+    }
+    
+    .navbar-secteur .navbar-brand {
+        color: var(--text-primary);
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+    
+    .navbar-secteur .nav-link {
+        color: var(--text-secondary);
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        margin: 0 0.2rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .navbar-secteur .nav-link:hover {
+        background: var(--accent-primary);
+        color: var(--bg-main);
+        transform: translateY(-2px);
+        box-shadow: 0 0 15px var(--accent-glow);
+    }
+    
+    .navbar-secteur .nav-link.active {
+        background: var(--accent-primary);
+        color: var(--bg-main);
+        font-weight: bold;
+    }
+
+    /* Cartes Carrières */
+    .carriere-card-link {
+        text-decoration: none;
+        display: block;
+    }
+
+    .carriere-card {
+        position: relative;
+        height: 500px;
+        border-radius: 15px;
+        overflow: hidden;
+        border: 3px solid var(--border-primary);
+        transition: all 0.4s ease;
+        background: var(--bg-secondary);
+    }
+
+    .carriere-card:hover {
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 40px var(--accent-glow);
+        transform: translateY(-10px);
+    }
+
+    .carriere-image-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .carriere-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+
+    .carriere-card:hover .carriere-image {
+        transform: scale(1.1);
+    }
+
+    .carriere-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            rgba(10, 10, 10, 0.3) 0%,
+            rgba(10, 10, 10, 0.8) 100%
+        );
+        display: flex;
+        align-items: flex-end;
+        padding: 2rem;
+        transition: background 0.4s ease;
+    }
+
+    .carriere-card:hover .carriere-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(10, 10, 10, 0.5) 0%,
+            rgba(10, 10, 10, 0.95) 100%
+        );
+    }
+
+    .carriere-overlay-content {
+        width: 100%;
+    }
+
+    .carriere-title {
+        color: var(--accent-primary);
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .carriere-subtitle {
+        color: var(--text-secondary);
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .carriere-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .stat-badge {
+        background: var(--bg-main);
+        color: var(--accent-primary);
+        padding: 0.4rem 0.8rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        border: 1px solid var(--border-primary);
+    }
+
+    .carriere-card:hover .stat-badge {
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    /* Info Box */
+    .info-box {
+        background: var(--bg-secondary);
+        border: 2px solid var(--border-primary);
+        color: var(--text-primary);
+    }
+
+    .info-box h3 {
+        color: var(--accent-primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .carriere-card {
+            height: 400px;
+        }
+
+        .carriere-title {
+            font-size: 1.5rem;
+        }
+
+        .carriere-stats {
+            flex-direction: column;
+        }
+    }
+</style>
+{% endblock %}
