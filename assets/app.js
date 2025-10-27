@@ -25,6 +25,7 @@ document.addEventListener('turbo:load', function() {
     console.log('⚡ Page chargée via Turbo');
     initializeDarkMode();
     initializeToggleButtons();
+    initializeBackToTop();
 });
 
 document.addEventListener('turbo:before-cache', function() {
@@ -147,5 +148,34 @@ function submitSuggestion() {
 // Rendre la fonction accessible globalement
 window.submitSuggestion = submitSuggestion;
 
+// Initialisation du bouton retour en haut
+function initializeBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    if (backToTopBtn && !backToTopBtn.dataset.initialized) {
+        backToTopBtn.dataset.initialized = 'true';
+        
+        // Afficher/masquer le bouton selon le scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        // Retour en haut au clic
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
+
 // Initialisation au premier chargement (sans Turbo)
-document.addEventListener('DOMContentLoaded', initializeDarkMode);
+document.addEventListener('DOMContentLoaded', function() {
+    initializeDarkMode();
+    initializeBackToTop();
+});

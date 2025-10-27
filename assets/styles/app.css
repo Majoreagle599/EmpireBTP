@@ -975,6 +975,27 @@ footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
    FOOTER
    ======================================== */
 
+/* Footer sticky - toujours en bas */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#main-content {
+    flex: 1 0 auto;
+}
+
+.footer-sticky {
+    flex-shrink: 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-primary);
+    padding: 2rem 0 1rem;
+}
+
 .footer {
     background: var(--bg-secondary);
     border-top: 1px solid var(--border-primary);
@@ -999,6 +1020,7 @@ footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
 .footer-socials {
     display: flex;
     gap: 0.75rem;
+    justify-content: center;
 }
 
 .social-link {
@@ -1046,10 +1068,64 @@ footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
     padding-left: 5px;
 }
 
+/* Footer mobile avec accordéon */
+.footer-accordion .accordion-item {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.footer-accordion .accordion-button {
+    background: transparent;
+    color: var(--text-primary);
+    font-weight: 600;
+    padding: 0.75rem 0;
+    border: none;
+    box-shadow: none;
+}
+
+.footer-accordion .accordion-button:not(.collapsed) {
+    background: transparent;
+    color: var(--accent-primary);
+}
+
+.footer-accordion .accordion-button:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.footer-accordion .accordion-body {
+    padding: 0.5rem 0 1rem;
+}
+
+.footer-links-mobile {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-mobile li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links-mobile a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+    padding: 0.25rem 0;
+    transition: var(--transition);
+}
+
+.footer-links-mobile a:hover {
+    color: var(--accent-primary);
+    padding-left: 8px;
+}
+
 .footer-divider {
     border-color: var(--border-primary);
     opacity: 0.3;
-    margin: 2rem 0 1.5rem;
+    margin: 1.5rem 0 1rem;
 }
 
 .footer-bottom {
@@ -1077,6 +1153,59 @@ footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
     color: var(--text-muted);
     font-size: 0.8rem;
     margin: 0;
+}
+
+/* Bouton retour en haut */
+.btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px var(--accent-primary);
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .footer-sticky {
+        padding: 1.5rem 0 1rem;
+    }
+    
+    .footer-text {
+        font-size: 0.85rem;
+    }
+    
+    .footer-socials {
+        justify-content: center;
+    }
+    
+    .btn-back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 1.3rem;
+    }
 }
 
 /* ========================================

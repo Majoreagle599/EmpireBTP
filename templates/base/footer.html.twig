@@ -1,0 +1,143 @@
+<footer class="footer-sticky mt-auto">
+    <div class="container py-4">
+        {# Desktop: 5 colonnes #}
+        <div class="row g-4 d-none d-md-flex">
+            <div class="col-md-4">
+                <h5 class="footer-title">🏗️ Empire BTP</h5>
+                <p class="footer-text">Le jeu de gestion d'entreprise BTP nouvelle génération. Construisez votre empire et dominez le secteur !</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-link" title="Discord">💬</a>
+                    <a href="#" class="social-link" title="Twitter">🐦</a>
+                    <a href="https://github.com/Majoreagle599/EmpireBTP" class="social-link" title="GitHub" target="_blank">💻</a>
+                </div>
+            </div>
+            
+            <div class="col-md-2">
+                <h5 class="footer-title">Jeu</h5>
+                <ul class="footer-links">
+                    <li><a href="{{ path('app_reglement') }}">📜 Règlement</a></li>
+                    <li><a href="#">📖 Guide</a></li>
+                    <li><a href="#">🎯 Tutoriels</a></li>
+                    <li><a href="#">❓ FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-md-2">
+                <h5 class="footer-title">Communauté</h5>
+                <ul class="footer-links">
+                    <li><a href="#">💬 Forum</a></li>
+                    <li><a href="#">📰 Blog</a></li>
+                    <li><a href="#">🏆 Classements</a></li>
+                    <li><a href="#">📊 Stats</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-md-2">
+                <h5 class="footer-title">Support</h5>
+                <ul class="footer-links">
+                    <li><a href="#">📧 Contact</a></li>
+                    <li><a href="#">🐛 Bug</a></li>
+                    <li><a href="#">💡 Suggestions</a></li>
+                    <li><a href="#">🔐 Sécurité</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-md-2">
+                <h5 class="footer-title">Légal</h5>
+                <ul class="footer-links">
+                    <li><a href="#">📄 CGU</a></li>
+                    <li><a href="#">🔒 Confidentialité</a></li>
+                    <li><a href="#">🍪 Cookies</a></li>
+                    <li><a href="#">⚖️ Mentions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        {# Mobile: Version compacte avec accordéons #}
+        <div class="d-md-none">
+            <div class="text-center mb-3">
+                <h5 class="footer-title">🏗️ Empire BTP</h5>
+                <p class="footer-text small">Construisez votre empire du BTP !</p>
+                <div class="footer-socials mb-3">
+                    <a href="#" class="social-link" title="Discord">💬</a>
+                    <a href="#" class="social-link" title="Twitter">🐦</a>
+                    <a href="https://github.com/Majoreagle599/EmpireBTP" class="social-link" title="GitHub" target="_blank">💻</a>
+                </div>
+            </div>
+            
+            {# Accordéon mobile pour les liens #}
+            <div class="accordion accordion-flush footer-accordion" id="footerAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#footerJeu">
+                            Jeu
+                        </button>
+                    </h2>
+                    <div id="footerJeu" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+                        <div class="accordion-body">
+                            <ul class="footer-links-mobile">
+                                <li><a href="{{ path('app_reglement') }}">📜 Règlement</a></li>
+                                <li><a href="#">📖 Guide</a></li>
+                                <li><a href="#">🎯 Tutoriels</a></li>
+                                <li><a href="#">❓ FAQ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#footerCommunaute">
+                            Communauté
+                        </button>
+                    </h2>
+                    <div id="footerCommunaute" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+                        <div class="accordion-body">
+                            <ul class="footer-links-mobile">
+                                <li><a href="#">💬 Forum</a></li>
+                                <li><a href="#">📰 Blog</a></li>
+                                <li><a href="#">🏆 Classements</a></li>
+                                <li><a href="#">📊 Statistiques</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#footerSupport">
+                            Support & Légal
+                        </button>
+                    </h2>
+                    <div id="footerSupport" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+                        <div class="accordion-body">
+                            <ul class="footer-links-mobile">
+                                <li><a href="#">📧 Contact</a></li>
+                                <li><a href="#">🐛 Signaler un bug</a></li>
+                                <li><a href="#">📄 CGU</a></li>
+                                <li><a href="#">🔒 Confidentialité</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <hr class="footer-divider my-3">
+        
+        <div class="footer-bottom text-center">
+            <p class="footer-copyright mb-1">
+                © {{ "now"|date("Y") }} Empire BTP. Tous droits réservés. 
+                <span class="footer-version">v1.2.0</span>
+            </p>
+            <p class="footer-made-with mb-0 small">
+                Fait avec ❤️ par l'équipe Empire BTP
+            </p>
+        </div>
+        
+        {# Bouton retour en haut (visible uniquement après scroll) #}
+        <button id="backToTop" class="btn-back-to-top" title="Retour en haut">
+            ⬆️
+        </button>
+    </div>
+</footer>
