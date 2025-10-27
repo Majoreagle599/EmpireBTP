@@ -1,10 +1,12 @@
 when@dev:
     web_profiler:
-        toolbar: true
+        toolbar: false  # Désactivé pour performance
+        intercept_redirects: false
 
     framework:
         profiler:
-            collect_serializer_data: true
+            enabled: false  # Désactivé pour performance
+            collect_serializer_data: false
 
 when@test:
     framework:
