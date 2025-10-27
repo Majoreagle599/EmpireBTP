@@ -746,3 +746,537 @@ footer, .footer {
 footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
   color: #ffffff !important;
 }
+
+/* ========================================
+   SECTION UPDATES & ROADMAP
+   ======================================== */
+
+/* Section Updates */
+.updates-section {
+    background: var(--bg-primary);
+}
+
+.update-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.update-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+}
+
+.update-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.update-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.update-badge-new {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-hover));
+    color: var(--bg-primary);
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--accent-primary); }
+    50% { opacity: 0.8; box-shadow: 0 0 20px var(--accent-primary); }
+}
+
+.update-version {
+    font-weight: 700;
+    color: var(--accent-primary);
+    font-size: 1.1rem;
+}
+
+.update-date {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-left: auto;
+}
+
+.update-title {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.update-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.update-list li {
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.update-list li:last-child {
+    border-bottom: none;
+}
+
+/* Section Roadmap */
+.roadmap-section {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.roadmap-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-primary);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.roadmap-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-primary);
+}
+
+.roadmap-in-progress::before {
+    background: linear-gradient(180deg, #10b981, #059669);
+    animation: progressGlow 2s infinite;
+}
+
+@keyframes progressGlow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.roadmap-planned::before {
+    background: linear-gradient(180deg, #3b82f6, #2563eb);
+}
+
+.roadmap-future::before {
+    background: linear-gradient(180deg, #8b5cf6, #7c3aed);
+}
+
+.roadmap-status {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.roadmap-badge {
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.roadmap-badge-progress {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.roadmap-badge-planned {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+}
+
+.roadmap-badge-future {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+}
+
+.roadmap-badge-idea {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+}
+
+.roadmap-eta {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.roadmap-title {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.roadmap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.roadmap-list li {
+    padding: 0.75rem 0 0.75rem 2rem;
+    color: #ffffff !important;
+    font-size: 1rem;
+    position: relative;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.roadmap-list li::before {
+    content: '\u25B8';
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.roadmap-progress {
+    margin-top: 1rem;
+}
+
+.roadmap-progress .progress {
+    height: 8px;
+    background: var(--bg-hover);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.roadmap-progress .progress-bar {
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-hover));
+    font-size: 0.7rem;
+    line-height: 8px;
+    font-weight: 700;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-primary);
+    padding: 3rem 0 1.5rem;
+    margin-top: auto;
+}
+
+.footer-title {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--bg-hover);
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.social-link:hover {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: var(--bg-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px var(--accent-primary);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--accent-primary);
+    padding-left: 5px;
+}
+
+.footer-divider {
+    border-color: var(--border-primary);
+    opacity: 0.3;
+    margin: 2rem 0 1.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+}
+
+.footer-copyright {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-version {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    background: var(--bg-hover);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    color: var(--accent-primary);
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.footer-made-with {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* ========================================
+   BOUTONS TOGGLE VOIR PLUS/MOINS
+   ======================================== */
+
+.btn-toggle-updates,
+.btn-toggle-roadmap {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-primary);
+    color: var(--text-primary);
+    padding: 0.75rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-toggle-updates:hover,
+.btn-toggle-roadmap:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(165, 243, 180, 0.2);
+}
+
+.btn-toggle-updates:active,
+.btn-toggle-roadmap:active {
+    transform: translateY(0);
+}
+
+/* Animation du collapse */
+#oldUpdates,
+#futureRoadmap {
+    transition: all 0.3s ease-in-out;
+}
+
+/* ========================================
+   BOUTON SUGGÉRER UNE FONCTIONNALITÉ
+   ======================================== */
+
+.btn-suggest-feature {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-hover));
+    color: #000000 !important;
+    padding: 1.25rem 3rem;
+    border-radius: 14px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(165, 243, 180, 0.4);
+    border: 2px solid var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-suggest-feature:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(165, 243, 180, 0.6);
+    color: #000000 !important;
+    background: linear-gradient(135deg, #b8f5c6, var(--accent-primary));
+    text-decoration: none;
+}
+
+.btn-suggest-feature:active {
+    transform: translateY(-2px) scale(1);
+}
+
+.suggest-icon {
+    font-size: 1.5rem;
+    animation: pulse-icon 2s infinite;
+}
+
+.suggest-text {
+    font-weight: 900;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.suggest-subtitle {
+    color: var(--text-secondary) !important;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+@keyframes pulse-icon {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+/* ========================================
+   MODAL STYLES
+   ======================================== */
+
+.modal-content {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-primary);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border-primary);
+    background: var(--bg-hover);
+    border-radius: 14px 14px 0 0;
+}
+
+.modal-title {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--border-primary);
+    background: var(--bg-hover);
+    border-radius: 0 0 14px 14px;
+}
+
+.modal .form-label {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.modal .form-control,
+.modal .form-select {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-primary);
+    color: var(--text-primary) !important;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+}
+
+.modal .form-control:focus,
+.modal .form-select:focus {
+    background: var(--bg-primary);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 0.2rem rgba(165, 243, 180, 0.25);
+    color: var(--text-primary) !important;
+}
+
+.modal .form-control::placeholder {
+    color: var(--text-muted);
+}
+
+.modal .form-select option {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.modal .btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+}
+
+.modal .btn-close:hover {
+    opacity: 1;
+}
+
+.modal .btn-primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-hover));
+    border: none;
+    color: var(--bg-primary) !important;
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+}
+
+.modal .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(165, 243, 180, 0.4);
+}
+
+.modal .btn-secondary {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-primary);
+    color: var(--text-secondary) !important;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+}
+
+.modal .btn-secondary:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent-primary);
+    color: var(--text-primary) !important;
+}

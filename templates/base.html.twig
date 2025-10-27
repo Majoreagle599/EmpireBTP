@@ -5,6 +5,10 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         
+        {# Meta pour optimiser Turbo #}
+        <meta name="turbo-cache-control" content="no-preview">
+        <meta name="turbo-prefetch" content="true">
+        
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -82,7 +86,8 @@
                             {% endif %}
                         </div>
                         
-                        {# Deuxième ligne: Dropdown Secteurs d'activité #}
+                        {# Deuxième ligne: Dropdown Secteurs d'activité - UNIQUEMENT si connecté #}
+                        {% if app.user %}
                         <div class="dropdown">
                             <button class="btn btn-secteurs dropdown-toggle" type="button" id="secteursDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 🏗️ Secteurs d'activité
@@ -94,22 +99,94 @@
                                 <li><a class="dropdown-item" href="{{ path('app_secteur_transport') }}">🚚 Transport</a></li>
                             </ul>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </nav>
 
-        <main>
-            {% for label, messages in app.flashes %}
-                {% for message in messages %}
-                    <div class="alert alert-{{ label }} alert-dismissible fade show container" role="alert">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+        <main id="main-content">
+            {# Messages flash - Ne pas les mettre en cache avec Turbo #}
+            <div data-turbo-temporary>
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ label }} alert-dismissible fade show container" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
+            </div>
 
             {% block body %}{% endblock %}
         </main>
+
+        <footer class="footer mt-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <h5 class="footer-title">🏗️ Empire BTP</h5>
+                        <p class="footer-text">Le jeu de gestion d'entreprise BTP nouvelle génération. Construisez votre empire et dominez le secteur !</p>
+                        <div class="footer-socials">
+                            <a href="#" class="social-link" title="Discord">💬</a>
+                            <a href="#" class="social-link" title="Twitter">🐦</a>
+                            <a href="https://github.com/Majoreagle599/EmpireBTP" class="social-link" title="GitHub" target="_blank">💻</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-2">
+                        <h5 class="footer-title">Jeu</h5>
+                        <ul class="footer-links">
+                            <li><a href="{{ path('app_reglement') }}">📜 Règlement</a></li>
+                            <li><a href="#">📖 Guide du débutant</a></li>
+                            <li><a href="#">🎯 Tutoriels</a></li>
+                            <li><a href="#">❓ FAQ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-md-2">
+                        <h5 class="footer-title">Communauté</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">💬 Forum</a></li>
+                            <li><a href="#">📰 Blog</a></li>
+                            <li><a href="#">🏆 Classements</a></li>
+                            <li><a href="#">📊 Statistiques</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-md-2">
+                        <h5 class="footer-title">Support</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">📧 Contact</a></li>
+                            <li><a href="#">🐛 Signaler un bug</a></li>
+                            <li><a href="#">💡 Suggestions</a></li>
+                            <li><a href="#">🔐 Sécurité</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-md-2">
+                        <h5 class="footer-title">Légal</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">📄 CGU</a></li>
+                            <li><a href="#">🔒 Confidentialité</a></li>
+                            <li><a href="#">🍪 Cookies</a></li>
+                            <li><a href="#">⚖️ Mentions légales</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <hr class="footer-divider">
+                
+                <div class="footer-bottom">
+                    <p class="footer-copyright">
+                        © 2024 Empire BTP. Tous droits réservés. 
+                        <span class="footer-version">v1.2.0</span>
+                    </p>
+                    <p class="footer-made-with">
+                        Fait avec ❤️ par l'équipe Empire BTP
+                    </p>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

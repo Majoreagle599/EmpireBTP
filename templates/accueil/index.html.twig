@@ -111,7 +111,8 @@
 </div>
 {% endif %}
 
-{# Section Outils et Fonctionnalités #}
+{# Section Outils et Fonctionnalités - Uniquement si connecté #}
+{% if app.user %}
 <div class="container py-5">
     <div class="text-center mb-5 animate-slide-up">
         <h2 class="display-5 fw-bold text-accent mb-3">⚙️ Vos Outils de Gestion</h2>
@@ -206,6 +207,233 @@
                         Accéder au marché
                     </a>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{# Sections Mises à jour - Uniquement si NON connecté #}
+{% if not app.user %}
+{# Section Mises à jour récentes #}
+<div class="updates-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold text-accent mb-3">📝 Mises à jour récentes</h2>
+            <p class="text-secondary fs-5">Découvrez les dernières améliorations d'Empire BTP</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-8 mx-auto">
+                {# Version 1.2.0 - Toujours visible #}
+                <div class="update-card">
+                    <div class="update-header">
+                        <span class="update-badge update-badge-new">NOUVEAU</span>
+                        <span class="update-version">v1.2.0</span>
+                        <span class="update-date">27 Octobre 2024</span>
+                    </div>
+                    <h3 class="update-title">🎨 Refonte graphique complète</h3>
+                    <ul class="update-list">
+                        <li>✨ Nouveau thème gaming sombre avec effets glow</li>
+                        <li>⚡ Optimisation des performances (chargement 3x plus rapide)</li>
+                        <li>🎯 Navigation Turbo pour une expérience fluide</li>
+                        <li>📱 Interface responsive améliorée</li>
+                        <li>🌙 Mode sombre permanent avec palette verte moderne</li>
+                    </ul>
+                </div>
+
+                {# Anciennes versions - Masquées par défaut #}
+                <div id="oldUpdates" class="collapse">
+                    {# Version 1.1.0 #}
+                    <div class="update-card">
+                        <div class="update-header">
+                            <span class="update-version">v1.1.0</span>
+                            <span class="update-date">20 Octobre 2024</span>
+                        </div>
+                        <h3 class="update-title">🚜 Système de matériel BTP</h3>
+                        <ul class="update-list">
+                            <li>🏗️ Ajout de 100 machines réparties sur 4 secteurs</li>
+                            <li>💰 Système d'achat et de location de matériel</li>
+                            <li>📊 Statistiques détaillées par machine</li>
+                            <li>🔧 Page catalogue avec filtres par secteur</li>
+                        </ul>
+                    </div>
+
+                    {# Version 1.0.0 #}
+                    <div class="update-card">
+                        <div class="update-header">
+                            <span class="update-version">v1.0.0</span>
+                            <span class="update-date">15 Octobre 2024</span>
+                        </div>
+                        <h3 class="update-title">🎉 Lancement d'Empire BTP</h3>
+                        <ul class="update-list">
+                            <li>🔐 Système d'authentification complet</li>
+                            <li>👤 Gestion de profil utilisateur</li>
+                            <li>📜 Règlement du jeu</li>
+                            <li>🎮 Interface de base du jeu</li>
+                        </ul>
+                    </div>
+                </div>
+
+                {# Bouton Voir plus/moins #}
+                <div class="text-center mt-3">
+                    <button class="btn-toggle-updates" type="button" data-bs-toggle="collapse" data-bs-target="#oldUpdates" aria-expanded="false">
+                        <span class="toggle-text-more">📜 Voir les anciennes versions</span>
+                        <span class="toggle-text-less d-none">🔼 Masquer les anciennes versions</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# Section Prochaines mises à jour #}
+<div class="roadmap-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold text-accent mb-3">🚀 Prochaines mises à jour</h2>
+            <p class="text-secondary fs-5">Ce qui arrive bientôt sur Empire BTP</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-8 mx-auto">
+                {# En cours de développement - Toujours visible #}
+                <div class="roadmap-card roadmap-in-progress">
+                    <div class="roadmap-status">
+                        <span class="roadmap-badge roadmap-badge-progress">EN COURS</span>
+                        <span class="roadmap-eta">Sortie prévue : Novembre 2024</span>
+                    </div>
+                    <h3 class="roadmap-title">🏗️ v1.3.0 - Système de chantiers</h3>
+                    <ul class="roadmap-list">
+                        <li>📋 Création et gestion de chantiers</li>
+                        <li>⏱️ Système de temps réel pour les projets</li>
+                        <li>💼 Appels d'offres et contrats</li>
+                        <li>📊 Suivi de progression des travaux</li>
+                        <li>💰 Calcul automatique des coûts et bénéfices</li>
+                    </ul>
+                    <div class="roadmap-progress">
+                        <div class="progress">
+                            <div class="progress-bar bg-success" style="width: 65%">65%</div>
+                        </div>
+                    </div>
+                </div>
+
+                {# Futures versions - Masquées par défaut #}
+                <div id="futureRoadmap" class="collapse">
+                    {# Planifié #}
+                    <div class="roadmap-card roadmap-planned">
+                        <div class="roadmap-status">
+                            <span class="roadmap-badge roadmap-badge-planned">PLANIFIÉ</span>
+                            <span class="roadmap-eta">Sortie prévue : Décembre 2024</span>
+                        </div>
+                        <h3 class="roadmap-title">👷 v1.4.0 - Gestion du personnel</h3>
+                        <ul class="roadmap-list">
+                            <li>👨‍💼 Recrutement d'employés (ouvriers, chefs d'équipe, ingénieurs)</li>
+                            <li>📈 Système d'expérience et de compétences</li>
+                            <li>💵 Gestion des salaires et productivité</li>
+                            <li>🎓 Formation et amélioration du personnel</li>
+                            <li>⭐ Système de satisfaction et fidélité</li>
+                        </ul>
+                    </div>
+
+                    {# Prévu #}
+                    <div class="roadmap-card roadmap-future">
+                        <div class="roadmap-status">
+                            <span class="roadmap-badge roadmap-badge-future">À VENIR</span>
+                            <span class="roadmap-eta">T1 2025</span>
+                        </div>
+                        <h3 class="roadmap-title">🏆 v1.5.0 - Compétition et classements</h3>
+                        <ul class="roadmap-list">
+                            <li>🥇 Classements globaux et par secteur</li>
+                            <li>🤝 Système d'alliances entre joueurs</li>
+                            <li>⚔️ Appels d'offres compétitifs</li>
+                            <li>🏅 Succès et badges à débloquer</li>
+                            <li>📊 Statistiques et comparaisons</li>
+                        </ul>
+                    </div>
+
+                    {# Idées futures #}
+                    <div class="roadmap-card roadmap-future">
+                        <div class="roadmap-status">
+                            <span class="roadmap-badge roadmap-badge-idea">IDÉES</span>
+                            <span class="roadmap-eta">2025</span>
+                        </div>
+                        <h3 class="roadmap-title">💡 Fonctionnalités en réflexion</h3>
+                        <ul class="roadmap-list">
+                            <li>🌍 Carte interactive avec villes et régions</li>
+                            <li>💬 Système de messagerie entre joueurs</li>
+                            <li>📰 Fil d'actualités et événements du jeu</li>
+                            <li>🎁 Événements saisonniers et récompenses</li>
+                            <li>📱 Application mobile</li>
+                            <li>🔊 Système de notifications en temps réel</li>
+                        </ul>
+                    </div>
+                </div>
+
+                {# Bouton Voir plus/moins #}
+                <div class="text-center mt-3">
+                    <button class="btn-toggle-roadmap" type="button" data-bs-toggle="collapse" data-bs-target="#futureRoadmap" aria-expanded="false">
+                        <span class="toggle-text-more">🚀 Voir toutes les futures mises à jour</span>
+                        <span class="toggle-text-less d-none">🔼 Masquer les futures mises à jour</span>
+                    </button>
+                </div>
+
+                {# Bouton Suggérer une fonctionnalité #}
+                <div class="text-center mt-4">
+                    <a href="#" class="btn-suggest-feature" data-bs-toggle="modal" data-bs-target="#suggestModal">
+                        <span class="suggest-icon">💡</span>
+                        <span class="suggest-text">Suggérer une fonctionnalité</span>
+                    </a>
+                    <p class="suggest-subtitle">
+                        Vous avez une idée ? Partagez-la avec nous !
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{# Modal Suggestion - Visible pour tous #}
+<div class="modal fade" id="suggestModal" tabindex="-1" aria-labelledby="suggestModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="suggestModalLabel">💡 Suggérer une fonctionnalité</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="suggestForm">
+                    <div class="mb-3">
+                        <label for="suggestTitle" class="form-label">Titre de la suggestion *</label>
+                        <input type="text" class="form-control" id="suggestTitle" required placeholder="Ex: Système de notifications push">
+                    </div>
+                    <div class="mb-3">
+                        <label for="suggestCategory" class="form-label">Catégorie *</label>
+                        <select class="form-select" id="suggestCategory" required>
+                            <option value="">Choisir une catégorie...</option>
+                            <option value="gameplay">🎮 Gameplay</option>
+                            <option value="interface">🎨 Interface</option>
+                            <option value="social">👥 Social</option>
+                            <option value="technique">⚙️ Technique</option>
+                            <option value="autre">💡 Autre</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="suggestDescription" class="form-label">Description détaillée *</label>
+                        <textarea class="form-control" id="suggestDescription" rows="5" required placeholder="Décrivez votre idée en détail..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="suggestEmail" class="form-label">Votre email (optionnel)</label>
+                        <input type="email" class="form-control" id="suggestEmail" placeholder="Pour vous tenir informé de l'avancement">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary" onclick="submitSuggestion()">
+                    🚀 Envoyer la suggestion
+                </button>
             </div>
         </div>
     </div>

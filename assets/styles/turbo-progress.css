@@ -1,0 +1,29 @@
+/* Optimisation de la barre de progression Turbo */
+.turbo-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-primary), #00ff88);
+    z-index: 2000;
+    box-shadow: 0 0 10px var(--accent-primary), 0 0 20px var(--accent-primary);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    animation: turbo-glow 1.5s infinite;
+}
+
+@keyframes turbo-glow {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 10px var(--accent-primary), 0 0 20px var(--accent-primary);
+    }
+    50% {
+        opacity: 0.8;
+        box-shadow: 0 0 15px var(--accent-primary), 0 0 30px var(--accent-primary);
+    }
+}
+
+/* Optimisation: masquer la barre immédiatement après chargement */
+.turbo-progress-bar[style*="width: 100%"] {
+    opacity: 0 !important;
+    transition: opacity 0.1s ease;
+}
