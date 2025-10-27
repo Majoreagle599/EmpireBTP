@@ -1,23 +1,33 @@
 # Configuration Docker Stack EmpireBTP
 
+## 🎨 Thème Duffus.fr
+
+Le projet utilise maintenant le thème gaming de **Duffus.fr** avec :
+- Couleur principale : **#58a6ff** (bleu GitHub)
+- Fond sombre : **#0d1117**
+- Style moderne et élégant inspiré de GitHub
+- Interface responsive avec Bootstrap 5
+
+---
+
 ## 🚀 Services disponibles
 
 Votre projet utilise maintenant **8 services Docker** (ports différents d'AgriCult) :
 
 ### Services principaux
-- **localhost:8090** - Application principale (via Traefik)
-- **localhost:8001** - Application (accès direct Nginx)
+- **http://localhost:8001** - Application principale (accès direct Nginx)
+- **http://localhost:8090** - Application (via Traefik - si configuré)
 
 ### Services de développement
-- **localhost:8026** - Interface Mailpit (emails)
-- **localhost:3001** - Serveur Mercure (temps réel)
-- **localhost:8091** - Dashboard Traefik
-- **localhost:5051** - pgAdmin (PostgreSQL)
+- **http://localhost:8026** - Interface Mailpit (capture emails)
+- **http://localhost:3001** - Serveur Mercure (notifications temps réel)
+- **http://localhost:8091** - Dashboard Traefik (reverse proxy)
+- **http://localhost:5051** - pgAdmin (gestion PostgreSQL)
 
 ### Services internes
-- **PostgreSQL** - Port 5433
+- **PostgreSQL** - Port 5433 (database: empirebtp)
 - **Mailpit SMTP** - Port 1026
-- **Assets** - Compilation automatique en arrière-plan
+- **Assets** - Compilation automatique en arrière-plan (npm run watch)
 
 ---
 

@@ -190,6 +190,9 @@ docker-compose down
 | Service | URL | Identifiants |
 |---------|-----|--------------|
 | **Site web** | http://localhost:8001 | admin@admin.com / 123456 |
+| **Traefik Dashboard** | http://localhost:8091 | - |
+| **Mercure** | http://localhost:3001 | - |
+| **Mailpit (Web)** | http://localhost:8026 | - |
 | **pgAdmin** | http://localhost:5051 | admin@empirebtp.com / admin123 |
 | **PostgreSQL** | localhost:5433 | empirebtp_user / empirebtp_pass |
 
