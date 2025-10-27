@@ -1,14 +1,94 @@
-# 🏗️ Empire BTP - Guide d'Installation Docker
+# 🏗️ Empire BTP - Guide d'Installation
+
+> 💡 **Deux méthodes disponibles** : XAMPP (simple) ou Docker (professionnel)
+> 
+> 📖 **Guide complet** : Voir [XAMPP-vs-DOCKER.md](XAMPP-vs-DOCKER.md) pour choisir et basculer entre les deux méthodes
 
 ## 📋 Table des matières
-1. [Qu'est-ce que Docker ?](#quest-ce-que-docker)
-2. [Prérequis](#prérequis)
-3. [Installation de Docker](#installation-de-docker)
-4. [Installation du projet](#installation-du-projet)
-5. [Utilisation quotidienne](#utilisation-quotidienne)
-6. [Accès aux services](#accès-aux-services)
-7. [Commandes utiles](#commandes-utiles)
-8. [Dépannage](#dépannage)
+1. [Installation rapide XAMPP](#-installation-rapide-xampp) ⭐ **Recommandé pour débuter**
+2. [Installation Docker](#-installation-docker-avancé)
+3. [Qu'est-ce que Docker ?](#quest-ce-que-docker)
+4. [Prérequis Docker](#prérequis)
+5. [Installation de Docker](#installation-de-docker)
+6. [Installation du projet Docker](#installation-du-projet)
+7. [Utilisation quotidienne](#utilisation-quotidienne)
+8. [Accès aux services](#accès-aux-services)
+9. [Commandes utiles](#commandes-utiles)
+10. [Dépannage](#dépannage)
+
+---
+
+## ⚡ Installation rapide XAMPP
+
+### Configuration actuelle (recommandée pour débuter)
+
+**Prérequis :**
+- XAMPP (PHP 8.2 + MySQL)
+- Composer
+- Node.js & npm
+
+**Installation en 5 minutes :**
+
+```bash
+# 1. Cloner le projet
+git clone https://github.com/Majoreagle599/EmpireBTP.git
+cd EmpireBTP
+
+# 2. Installer les dépendances
+composer install
+npm install
+
+# 3. Créer la base de données
+C:\xampp\php\php.exe bin/console doctrine:database:create
+C:\xampp\php\php.exe bin/console doctrine:migrations:migrate
+
+# 4. Compiler les assets
+npm run build
+
+# 5. Créer un admin
+C:\xampp\php\php.exe bin/console app:create-admin
+```
+
+**Accès :**
+- **Site** : http://localhost/empirebtp/public/
+- **Admin** : admin@admin.com / 123456
+- **phpMyAdmin** : http://localhost/phpmyadmin
+
+✅ **Vous êtes prêt à développer !**
+
+---
+
+## 🐳 Installation Docker (avancé)
+
+### Démarrage rapide avec Docker
+
+**Prérequis :**
+- Docker Desktop installé et démarré
+
+**Installation automatique :**
+
+```bash
+# Double-clic sur :
+docker-start.bat
+
+# Ou en ligne de commande :
+docker-compose up -d
+```
+
+**Accès aux services Docker :**
+- **Site** : http://localhost:8001
+- **phpMyAdmin** : http://localhost:8082 (root / root)
+- **Traefik** : http://localhost:8091
+- **Mercure** : http://localhost:3001
+- **Mailpit** : http://localhost:8026
+
+**Utilisation quotidienne :**
+```bash
+docker-up.bat     # Démarrer
+docker-down.bat   # Arrêter
+```
+
+📚 **Guide détaillé :** Voir [XAMPP-vs-DOCKER.md](XAMPP-vs-DOCKER.md)
 
 ---
 
