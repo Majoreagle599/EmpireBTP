@@ -1,6 +1,23 @@
 version: '3.8'
 
 services:
+  # Service Traefik - Reverse Proxy
+  traefik:
+    image: traefik:v2.10
+    container_name: empirebtp_traefik
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "8090:80"      # Port 8090 au lieu de 80 (AgriCult utilise 80)
+      - "8091:8080"    # Dashboard Traefik sur 8091 au lieu de 8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - empirebtp_network
+
   # Service PHP-FPM
   php:
     build:
@@ -20,8 +37,6 @@ services:
   nginx:
     image: nginx:alpine
     container_name: empirebtp_nginx
-    ports:
-      - "8001:80"
     volumes:
       - .:/var/www/empirebtp
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
@@ -29,6 +44,11 @@ services:
       - empirebtp_network
     depends_on:
       - php
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.empirebtp.rule=Host(`empirebtp.local`)"
+      - "traefik.http.routers.empirebtp.entrypoints=web"
+      - "traefik.http.services.empirebtp.loadbalancer.server.port=80"
 
   # Service PostgreSQL
   postgres:
@@ -58,6 +78,54 @@ services:
       - empirebtp_network
     depends_on:
       - postgres
+
+  # Service Mercure - Communication temps réel
+  mercure:
+    image: dunglas/mercure:latest
+    container_name: empirebtp_mercure
+    restart: unless-stopped
+    environment:
+      SERVER_NAME: ':80'
+      MERCURE_PUBLISHER_JWT_KEY: '!ChangeThisMercureHubJWTSecretKey!'
+      MERCURE_SUBSCRIBER_JWT_KEY: '!ChangeThisMercureHubJWTSecretKey!'
+      MERCURE_EXTRA_DIRECTIVES: |
+        cors_origins http://empirebtp.local http://localhost:8001 http://localhost:8090
+    ports:
+      - "3001:80"  # Port 3001 au lieu de 3000 (AgriCult utilise 3000)
+    networks:
+      - empirebtp_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mercure.rule=Host(`mercure.empirebtp.local`)"
+      - "traefik.http.routers.mercure.entrypoints=web"
+
+  # Service Mailpit - Emails de développement
+  mailer:
+    image: axllent/mailpit:latest
+    container_name: empirebtp_mailpit
+    ports:
+      - "1026:1025"  # SMTP sur 1026 (AgriCult utilise 1025)
+      - "8026:8025"  # Interface web sur 8026 (AgriCult utilise 8025)
+    networks:
+      - empirebtp_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mailpit.rule=Host(`mail.empirebtp.local`)"
+      - "traefik.http.routers.mailpit.entrypoints=web"
+      - "traefik.http.services.mailpit.loadbalancer.server.port=8025"
+
+  # Service Assets - Compilation automatique
+  assets:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: empirebtp_assets
+    volumes:
+      - .:/var/www/empirebtp
+    working_dir: /var/www/empirebtp
+    command: npm run watch
+    networks:
+      - empirebtp_network
 
 networks:
   empirebtp_network:

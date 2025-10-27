@@ -9,45 +9,134 @@
         
         {% if app.user %}
             <p class="hero-subtitle">Bienvenue, {{ app.user.email }} !</p>
-            <p class="lead mb-4">Votre empire du BTP vous attend. Gérez vos projets, développez votre entreprise et devenez le leader du secteur !</p>
+            <p class="lead">Votre empire du BTP vous attend. Gérez vos chantiers, optimisez votre matériel et devenez le leader du secteur.</p>
             <div>
-                <a href="#" class="btn btn-custom btn-primary-custom">🎮 Commencer à jouer</a>
+                <a href="{{ path('app_materiel') }}" class="btn btn-custom btn-primary-custom">🚀 Accéder au Matériel</a>
                 <a href="{{ path('app_account') }}" class="btn btn-custom btn-secondary-custom">👤 Mon profil</a>
             </div>
         {% else %}
-            <p class="hero-subtitle">Construisez votre empire du BTP dès maintenant !</p>
-            <p class="lead mb-4">Gérez votre entreprise, réalisez des projets ambitieux et développez votre empire dans le monde du BTP.</p>
+            <p class="hero-subtitle">Construisez votre empire du BTP</p>
+            <p class="lead">Des outils et guides pensés pour gérer votre entreprise de construction de A à Z.</p>
             <div>
-                <a href="{{ path('app_register') }}" class="btn btn-custom btn-primary-custom">🚀 S'inscrire</a>
+                <a href="{{ path('app_register') }}" class="btn btn-custom btn-primary-custom">🚀 Commencer</a>
                 <a href="{{ path('app_login') }}" class="btn btn-custom btn-secondary-custom">🔑 Se connecter</a>
             </div>
         {% endif %}
     </div>
 </div>
 
-<div class="container features-section">
-    <div class="row text-center">
-        <div class="col-md-4">
-            <div class="feature-card">
-                <div class="feature-icon">🏢</div>
-                <h3>Gérez votre entreprise</h3>
-                <p>Développez votre société de BTP et prenez les meilleures décisions stratégiques.</p>
+{# Section Secteurs d'activité #}
+<div class="container-fluid py-5" style="background-color: var(--bg-main);">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">🎯 Les Secteurs d'Activité</h2>
+            <p class="section-subtitle">Spécialisez-vous dans l'un de nos 4 secteurs du BTP</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6">
+                <a href="{{ path('app_secteur_voirie') }}" class="sector-card voirie">
+                    <div class="sector-icon">🛣️</div>
+                    <h3>Voirie</h3>
+                    <p>Travaux routiers, aménagements urbains et infrastructures de transport</p>
+                    <span class="sector-arrow">→</span>
+                </a>
+            </div>
+            
+            <div class="col-md-6">
+                <a href="{{ path('app_secteur_carriere') }}" class="sector-card carriere">
+                    <div class="sector-icon">⛏️</div>
+                    <h3>Carrière</h3>
+                    <p>Extraction de matériaux, concassage et production d'agrégats</p>
+                    <span class="sector-arrow">→</span>
+                </a>
+            </div>
+            
+            <div class="col-md-6">
+                <a href="{{ path('app_secteur_demolition') }}" class="sector-card demolition">
+                    <div class="sector-icon">💥</div>
+                    <h3>Démolition</h3>
+                    <p>Déconstruction, démontage et recyclage des structures</p>
+                    <span class="sector-arrow">→</span>
+                </a>
+            </div>
+            
+            <div class="col-md-6">
+                <a href="{{ path('app_secteur_transport') }}" class="sector-card transport">
+                    <div class="sector-icon">🚚</div>
+                    <h3>Transport</h3>
+                    <p>Logistique BTP, transport de matériaux et gestion de flotte</p>
+                    <span class="sector-arrow">→</span>
+                </a>
             </div>
         </div>
+    </div>
+</div>
+
+{# Section Outils et Fonctionnalités #}
+<div class="container features-section">
+    <div class="text-center mb-5">
+        <h2 class="section-title">⚙️ Vos Outils de Gestion</h2>
+        <p class="section-subtitle">Des fonctionnalités pensées pour optimiser votre entreprise BTP</p>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">🚜</div>
+                <h3>Catalogue Matériel</h3>
+                <p>Explorez 100+ machines BTP avec filtres par secteur, catégorie et marque. Achat et location disponibles.</p>
+                <a href="{{ path('app_materiel') }}" class="feature-link">Voir le catalogue →</a>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">🏗️</div>
+                <h3>Gestion de Chantiers</h3>
+                <p>Créez, planifiez et suivez vos chantiers en temps réel. Assignez le matériel et le personnel nécessaire.</p>
+                <a href="#" class="feature-link">Gérer mes chantiers →</a>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">👷</div>
+                <h3>Gestion du Personnel</h3>
+                <p>Recrutez, formez et gérez votre équipe. Optimisez la productivité et les compétences.</p>
+                <a href="#" class="feature-link">Gérer le personnel →</a>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="feature-icon">�</div>
+                <h3>Maintenance</h3>
+                <p>Suivez l'usure de votre parc matériel. Planifiez les réparations et optimisez la disponibilité.</p>
+                <a href="#" class="feature-link">Maintenance →</a>
+            </div>
+        </div>
+        
         <div class="col-md-4">
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
-                <h3>Suivez vos projets</h3>
-                <p>Gérez plusieurs chantiers simultanément et optimisez vos ressources.</p>
+                <h3>Statistiques</h3>
+                <p>Tableaux de bord détaillés sur la rentabilité, l'utilisation du matériel et la progression.</p>
+                <a href="#" class="feature-link">Voir les stats →</a>
             </div>
         </div>
+        
         <div class="col-md-4">
             <div class="feature-card">
-                <div class="feature-icon">💰</div>
-                <h3>Augmentez vos profits</h3>
-                <p>Investissez intelligemment et développez votre empire financier.</p>
+                <div class="feature-icon">🛒</div>
+                <h3>Marché</h3>
+                <p>Achetez et vendez du matériel d'occasion. Trouvez les meilleures opportunités du marché.</p>
+                <a href="#" class="feature-link">Accéder au marché →</a>
             </div>
         </div>
+    </div>
+</div>
+{% endblock %}
     </div>
 </div>
 {% endblock %}
