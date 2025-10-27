@@ -1,0 +1,50 @@
+═══════════════════════════════════════════════════════════════
+  📝 MÉMO GIT - EMPIRE BTP
+═══════════════════════════════════════════════════════════════
+
+🔍 VÉRIFIER L'ÉTAT DU PROJET
+─────────────────────────────────────────────────────────────
+git status                    # Voir les fichiers modifiés
+git log --oneline -5          # Voir les 5 derniers commits
+git diff                      # Voir les modifications en détail
+
+📥 RÉCUPÉRER LES MODIFICATIONS (PULL)
+─────────────────────────────────────────────────────────────
+git pull origin main          # Récupérer les changements depuis GitHub
+
+📤 ENVOYER LES MODIFICATIONS (PUSH)
+─────────────────────────────────────────────────────────────
+git add .                     # Ajouter tous les fichiers modifiés
+git commit -m "Message"       # Créer un commit avec message
+git push origin main          # Envoyer vers GitHub
+
+⚡ COMMANDES RAPIDES (tout en une ligne)
+─────────────────────────────────────────────────────────────
+git add . ; git commit -m "Message" ; git push origin main
+
+🔧 COMMANDES UTILES
+─────────────────────────────────────────────────────────────
+git branch                    # Voir la branche actuelle
+git remote -v                 # Voir les dépôts distants
+git log --graph --oneline     # Historique graphique
+
+❌ ANNULER DES MODIFICATIONS
+─────────────────────────────────────────────────────────────
+git restore fichier.txt       # Annuler les modifs d'un fichier
+git reset HEAD~1              # Annuler le dernier commit (garde les modifs)
+git reset --hard HEAD~1       # Annuler le dernier commit (SUPPRIME tout)
+
+📋 EXEMPLES DE MESSAGES DE COMMIT
+─────────────────────────────────────────────────────────────
+✨ Nouvelle fonctionnalité
+🐛 Correction de bug
+🎨 Amélioration du design
+📝 Documentation
+🔧 Configuration
+🚀 Performance
+♻️ Refactoring
+
+═══════════════════════════════════════════════════════════════
+  Repository: https://github.com/Majoreagle599/EmpireBTP
+  Branche: main
+═══════════════════════════════════════════════════════════════
