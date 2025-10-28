@@ -31,6 +31,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('app_reglement') }}">📜 Règlement</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_faq') }}">❓ FAQ</a>
+                        </li>
                         {% if app.user %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('app_chantiers') }}">🏗️ Mes Chantiers</a>
@@ -57,11 +60,8 @@
                     </ul>
                     
                     <div class="d-flex flex-column align-items-end">
-                        {# Première ligne: Mode sombre et Utilisateur #}
+                        {# Première ligne: Utilisateur #}
                         <div class="d-flex align-items-center mb-2">
-                            {# Bouton mode sombre - toujours visible #}
-                            <button id="darkModeToggle" class="btn btn-outline-light btn-sm me-2" title="Changer de thème">🌙</button>
-                            
                             {% if app.user %}
                                 <div class="dropdown me-2">
                                     <a class="btn btn-outline-light btn-sm dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">

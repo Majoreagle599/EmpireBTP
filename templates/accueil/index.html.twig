@@ -45,6 +45,186 @@
     </div>
 </div>
 
+{# Section Top du Mois - Visible uniquement pour les visiteurs NON connectés #}
+{% if not app.user %}
+<div class="top-month-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold text-accent mb-3">🏆 Top du Mois - Octobre 2025</h2>
+            <p class="text-secondary fs-5">Les meilleurs performeurs de ce mois-ci</p>
+        </div>
+
+        <div class="row g-4">
+            {# Meilleur Joueur #}
+            <div class="col-lg-6">
+                <div class="top-player-card">
+                    <div class="top-card-header">
+                        <h3 class="top-card-title">👤 Meilleur Joueur</h3>
+                        <span class="top-badge top-badge-gold">🥇 #1</span>
+                    </div>
+                    <div class="top-player-info">
+                        <div class="top-player-avatar">
+                            <div class="avatar-circle">
+                                <span class="avatar-text">JD</span>
+                            </div>
+                            <div class="player-rank-badge">Niveau 42</div>
+                        </div>
+                        <div class="top-player-details">
+                            <h4 class="player-name">Jean Dupont</h4>
+                            <p class="player-subtitle">Entrepreneur Voirie</p>
+                            <div class="player-stats mt-3">
+                                <div class="stat-item">
+                                    <span class="stat-icon">💰</span>
+                                    <div class="stat-content">
+                                        <span class="stat-value">2.4M €</span>
+                                        <span class="stat-label">CA mensuel</span>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-icon">🏗️</span>
+                                    <div class="stat-content">
+                                        <span class="stat-value">47</span>
+                                        <span class="stat-label">Chantiers réalisés</span>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-icon">⭐</span>
+                                    <div class="stat-content">
+                                        <span class="stat-value">4.9/5</span>
+                                        <span class="stat-label">Réputation</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="progress-container mt-3">
+                                <div class="progress-label">
+                                    <span>Progression du mois</span>
+                                    <span class="progress-value">+38%</span>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-success" style="width: 38%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# Meilleure Entreprise #}
+            <div class="col-lg-6">
+                <div class="top-company-card">
+                    <div class="top-card-header">
+                        <h3 class="top-card-title">🏢 Meilleure Entreprise</h3>
+                        <span class="top-badge top-badge-gold">🥇 #1</span>
+                    </div>
+                    <div class="top-company-info">
+                        <div class="top-company-logo">
+                            <div class="company-logo-circle">
+                                <span class="company-logo-text">BTP</span>
+                            </div>
+                            <div class="company-rank-badge">Enterprise Elite</div>
+                        </div>
+                        <div class="top-company-details">
+                            <h4 class="company-name">BTP Solutions Pro</h4>
+                            <p class="company-subtitle">Multi-secteurs • 156 employés</p>
+                            <div class="company-stats mt-3">
+                                <div class="stat-item">
+                                    <span class="stat-icon">💼</span>
+                                    <div class="stat-content">
+                                        <span class="stat-value">8.7M €</span>
+                                        <span class="stat-label">CA mensuel</span>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-icon">🎯</span>
+                                    <div class="stat-content">
+                                        <span class="stat-value">142</span>
+                                        <span class="stat-label">Projets actifs</span>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-icon">🏆</span>
+                                    <div class="stat-content">
+                                        <span class="stat-value">98%</span>
+                                        <span class="stat-label">Taux de réussite</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="progress-container mt-3">
+                                <div class="progress-label">
+                                    <span>Croissance mensuelle</span>
+                                    <span class="progress-value">+52%</span>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-success" style="width: 52%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# Podium Top 3 Joueurs #}
+        <div class="row g-4 mt-4">
+            <div class="col-12">
+                <div class="podium-section">
+                    <h4 class="podium-title">🎖️ Podium des Joueurs</h4>
+                    <div class="row g-3">
+                        {# 2ème place #}
+                        <div class="col-md-4">
+                            <div class="podium-card podium-silver">
+                                <div class="podium-rank">🥈 #2</div>
+                                <div class="podium-player">
+                                    <div class="podium-avatar">ML</div>
+                                    <h5>Marie Leclerc</h5>
+                                    <p class="podium-sector">Carrière</p>
+                                </div>
+                                <div class="podium-stats">
+                                    <span>💰 1.8M €</span>
+                                    <span>🏗️ 32 chantiers</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        {# 1ère place (déjà affichée en grand) #}
+                        <div class="col-md-4">
+                            <div class="podium-card podium-gold-highlight">
+                                <div class="podium-rank">👑 #1</div>
+                                <div class="podium-player">
+                                    <div class="podium-avatar podium-avatar-gold">JD</div>
+                                    <h5>Jean Dupont</h5>
+                                    <p class="podium-sector">Voirie</p>
+                                </div>
+                                <div class="podium-stats">
+                                    <span>💰 2.4M €</span>
+                                    <span>🏗️ 47 chantiers</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        {# 3ème place #}
+                        <div class="col-md-4">
+                            <div class="podium-card podium-bronze">
+                                <div class="podium-rank">🥉 #3</div>
+                                <div class="podium-player">
+                                    <div class="podium-avatar">PM</div>
+                                    <h5>Pierre Martin</h5>
+                                    <p class="podium-sector">Transport</p>
+                                </div>
+                                <div class="podium-stats">
+                                    <span>💰 1.5M €</span>
+                                    <span>🏗️ 28 chantiers</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
 {# Section Secteurs d'activité - Visible uniquement pour les utilisateurs connectés #}
 {% if app.user %}
 <div class="py-5" style="background-color: var(--bg-main); position: relative; z-index: 1;">

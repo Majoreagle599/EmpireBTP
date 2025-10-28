@@ -23,7 +23,6 @@ console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
 // Optimisation Turbo: événements de chargement
 document.addEventListener('turbo:load', function() {
     console.log('⚡ Page chargée via Turbo');
-    initializeDarkMode();
     initializeToggleButtons();
     initializeBackToTop();
 });
@@ -64,38 +63,6 @@ function initializeToggleButtons() {
                 btnRoadmap.querySelector('.toggle-text-more').classList.remove('d-none');
                 btnRoadmap.querySelector('.toggle-text-less').classList.add('d-none');
             });
-        }
-    }
-}
-
-// Gestion du mode sombre (compatible Turbo)
-function initializeDarkMode() {
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const htmlElement = document.documentElement;
-    
-    // Vérifier la préférence sauvegardée
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        htmlElement.setAttribute('data-theme', savedTheme);
-        updateIcon(savedTheme);
-    }
-    
-    // Toggle au clic
-    if (darkModeToggle && !darkModeToggle.dataset.initialized) {
-        darkModeToggle.dataset.initialized = 'true';
-        darkModeToggle.addEventListener('click', function() {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateIcon(newTheme);
-        });
-    }
-    
-    function updateIcon(theme) {
-        if (darkModeToggle) {
-            darkModeToggle.innerHTML = theme === 'dark' ? '☀️' : '🌙';
         }
     }
 }
@@ -176,6 +143,5 @@ function initializeBackToTop() {
 
 // Initialisation au premier chargement (sans Turbo)
 document.addEventListener('DOMContentLoaded', function() {
-    initializeDarkMode();
     initializeBackToTop();
 });

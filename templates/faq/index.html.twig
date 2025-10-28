@@ -1,0 +1,293 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FAQ - Questions Fréquentes - Empire BTP{% endblock %}
+
+{% block body %}
+<div class="faq-page">
+    {# En-tête de la page FAQ #}
+    <div class="faq-header py-5">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="display-4 fw-bold text-accent mb-3">❓ Foire Aux Questions</h1>
+                <p class="lead text-secondary">Tout ce que vous devez savoir sur Empire BTP</p>
+                <p class="text-muted">
+                    Vous ne trouvez pas la réponse à votre question ? 
+                    <a href="#" class="text-accent">Contactez-nous</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {# Contenu FAQ #}
+    <div class="faq-content py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion accordion-custom" id="faqAccordion">
+                        {# Question 1 #}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                    <span class="faq-icon">💰</span>
+                                    <span>Empire BTP est-il vraiment gratuit ?</span>
+                                </button>
+                            </h2>
+                            <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Oui, 100% gratuit !</strong> Empire BTP est une plateforme de gestion BTP entièrement gratuite sans aucun achat intégré ni publicité intrusive.</p>
+                                    <ul>
+                                        <li>✅ Inscription gratuite sans carte bancaire</li>
+                                        <li>✅ Accès complet à toutes les fonctionnalités</li>
+                                        <li>✅ Pas de version premium ou payante</li>
+                                        <li>✅ Pas de publicités invasives</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# Question 2 #}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                    <span class="faq-icon">⏱️</span>
+                                    <span>Combien de temps faut-il pour commencer ?</span>
+                                </button>
+                            </h2>
+                            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Moins de 2 minutes !</strong> Le processus d'inscription est ultra-rapide :</p>
+                                    <ol>
+                                        <li>📧 <strong>30 secondes</strong> - Créez votre compte (email + mot de passe)</li>
+                                        <li>🏗️ <strong>1 minute</strong> - Découvrez l'interface et choisissez votre premier secteur</li>
+                                        <li>🚜 <strong>30 secondes</strong> - Achetez votre première machine et lancez-vous !</li>
+                                    </ol>
+                                    <p class="mb-0">Vous pouvez commencer à construire votre empire BTP immédiatement après l'inscription.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# Question 3 #}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                    <span class="faq-icon">📱</span>
+                                    <span>Puis-je jouer sur mobile ou tablette ?</span>
+                                </button>
+                            </h2>
+                            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Oui, absolument !</strong> Empire BTP est entièrement responsive et optimisé pour tous les appareils :</p>
+                                    <ul>
+                                        <li>💻 <strong>Desktop</strong> - Expérience complète avec toutes les fonctionnalités</li>
+                                        <li>📱 <strong>Mobile</strong> - Interface adaptée tactile, navigation optimisée</li>
+                                        <li>📲 <strong>Tablette</strong> - Le meilleur compromis pour gérer en déplacement</li>
+                                    </ul>
+                                    <p class="mb-0">Aucune application à télécharger, tout fonctionne directement depuis votre navigateur web !</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# Question 4 #}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                    <span class="faq-icon">🎮</span>
+                                    <span>Quels sont les secteurs d'activité disponibles ?</span>
+                                </button>
+                            </h2>
+                            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>4 secteurs spécialisés</strong> pour développer votre stratégie :</p>
+                                    <div class="row g-3 mt-2">
+                                        <div class="col-md-6">
+                                            <div class="faq-sector-card">
+                                                <h5>🛣️ Voirie</h5>
+                                                <p>Construction et rénovation de routes, autoroutes, parkings</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="faq-sector-card">
+                                                <h5>⛏️ Carrière</h5>
+                                                <p>Extraction de matériaux, concassage, production de granulats</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="faq-sector-card">
+                                                <h5>🚚 Transport</h5>
+                                                <p>Logistique BTP, transport de matériaux et engins</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="faq-sector-card">
+                                                <h5>🏗️ Démolition</h5>
+                                                <p>Déconstruction, démolition contrôlée, recyclage</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# Question 5 #}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq5">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                    <span class="faq-icon">💡</span>
+                                    <span>Comment gagner de l'argent dans le jeu ?</span>
+                                </button>
+                            </h2>
+                            <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="faq5" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Plusieurs stratégies pour développer votre entreprise :</strong></p>
+                                    <ul>
+                                        <li>🏗️ <strong>Réaliser des chantiers</strong> - Complétez des projets pour vos clients</li>
+                                        <li>🚜 <strong>Louer votre matériel</strong> - Générez des revenus passifs</li>
+                                        <li>📈 <strong>Investir intelligemment</strong> - Achetez du matériel performant</li>
+                                        <li>💼 <strong>Appels d'offres</strong> - Remportez des contrats lucratifs</li>
+                                        <li>⭐ <strong>Réputation</strong> - Plus elle est haute, plus vous gagnez</li>
+                                        <li>🎯 <strong>Missions quotidiennes</strong> - Bonus et récompenses régulières</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# Question 6 #}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq6">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                    <span class="faq-icon">🔒</span>
+                                    <span>Mes données sont-elles sécurisées ?</span>
+                                </button>
+                            </h2>
+                            <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="faq6" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Votre sécurité est notre priorité absolue !</strong></p>
+                                    <ul>
+                                        <li>🔐 <strong>Chiffrement SSL/TLS</strong> - Toutes vos données sont cryptées</li>
+                                        <li>🛡️ <strong>Mots de passe hashés</strong> - Protection maximale de votre compte</li>
+                                        <li>🇪🇺 <strong>Conformité RGPD</strong> - Respect total de votre vie privée</li>
+                                        <li>💾 <strong>Sauvegardes automatiques</strong> - Votre progression est toujours protégée</li>
+                                        <li>🚫 <strong>Pas de revente de données</strong> - Vos informations restent privées</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# Question 7 #}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq7">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                                    <span class="faq-icon">🆘</span>
+                                    <span>J'ai un problème, comment obtenir de l'aide ?</span>
+                                </button>
+                            </h2>
+                            <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="faq7" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Plusieurs moyens pour obtenir de l'assistance :</strong></p>
+                                    <ul>
+                                        <li>💬 <strong>Discord communautaire</strong> - Réponse rapide de la communauté (< 15 min)</li>
+                                        <li>📧 <strong>Support email</strong> - contact@empirebtp.fr (réponse sous 24h)</li>
+                                        <li>📚 <strong>Documentation complète</strong> - Tutoriels et guides détaillés</li>
+                                        <li>🎥 <strong>Vidéos YouTube</strong> - Guides visuels pas-à-pas</li>
+                                        <li>💡 <strong>Suggérer une fonctionnalité</strong> - Utilisez le bouton prévu à cet effet</li>
+                                    </ul>
+                                    <p class="mb-0">Notre équipe et notre communauté sont là pour vous aider !</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# Question 8 #}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq8">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                    <span class="faq-icon">🚀</span>
+                                    <span>Des nouvelles fonctionnalités sont-elles prévues ?</span>
+                                </button>
+                            </h2>
+                            <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="faq8" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Oui ! Le jeu est en développement actif constant :</strong></p>
+                                    <ul>
+                                        <li>⚡ <strong>Mises à jour régulières</strong> - Nouvelles features chaque mois</li>
+                                        <li>🏗️ <strong>v1.3.0 en cours</strong> - Système de chantiers (65% terminé)</li>
+                                        <li>👷 <strong>v1.4.0 planifiée</strong> - Gestion du personnel (Décembre 2024)</li>
+                                        <li>🏆 <strong>v1.5.0 prévue</strong> - Compétitions et classements (T1 2025)</li>
+                                        <li>💡 <strong>Votre avis compte</strong> - Proposez vos idées via le bouton de suggestion</li>
+                                    </ul>
+                                    <p class="mb-0">Consultez la roadmap complète sur la page d'accueil pour voir tout ce qui arrive !</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# Question 9 - Nouvelle #}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq9">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                                    <span class="faq-icon">🎯</span>
+                                    <span>Quel est l'objectif du jeu ?</span>
+                                </button>
+                            </h2>
+                            <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="faq9" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Construire le plus grand empire BTP !</strong></p>
+                                    <ul>
+                                        <li>📈 <strong>Développer votre entreprise</strong> - Passez de travailleur indépendant à PDG</li>
+                                        <li>🚜 <strong>Agrandir votre parc matériel</strong> - Collectionnez et optimisez vos machines</li>
+                                        <li>🏆 <strong>Dominer les classements</strong> - Devenez le meilleur entrepreneur</li>
+                                        <li>💰 <strong>Maximiser vos revenus</strong> - Atteignez des millions d'euros de CA</li>
+                                        <li>⭐ <strong>Construire votre réputation</strong> - Soyez reconnu dans tout le secteur</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# Question 10 - Nouvelle #}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq10">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                                    <span class="faq-icon">👥</span>
+                                    <span>Puis-je jouer avec mes amis ?</span>
+                                </button>
+                            </h2>
+                            <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="faq10" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Oui ! Empire BTP favorise l'interaction entre joueurs :</strong></p>
+                                    <ul>
+                                        <li>🏆 <strong>Classements compétitifs</strong> - Comparez-vous à vos amis</li>
+                                        <li>🤝 <strong>Système d'alliances</strong> (à venir v1.5.0)</li>
+                                        <li>⚔️ <strong>Appels d'offres multijoueurs</strong> (à venir v1.3.0)</li>
+                                        <li>💬 <strong>Messagerie interne</strong> (en réflexion pour 2025)</li>
+                                        <li>👥 <strong>Système de parrainage</strong> - Invitez vos amis et gagnez des bonus</li>
+                                    </ul>
+                                    <p class="mb-0">Rejoignez aussi notre Discord pour échanger avec la communauté !</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# CTA après FAQ #}
+                    {% if not app.user %}
+                    <div class="faq-cta text-center mt-5">
+                        <div class="faq-cta-card">
+                            <h3 class="mb-3">🎯 Prêt à devenir entrepreneur BTP ?</h3>
+                            <p class="lead mb-4">Rejoignez des milliers de joueurs et construisez votre empire dès maintenant !</p>
+                            <a href="{{ path('app_register') }}" class="btn btn-custom btn-lg me-3">
+                                🚀 Inscription Gratuite
+                            </a>
+                            <a href="{{ path('app_login') }}" class="btn btn-outline-custom btn-lg">
+                                🔑 Se connecter
+                            </a>
+                            <div class="mt-3">
+                                <small class="text-secondary">
+                                    ✅ Gratuit • ✅ Sans engagement • ✅ Inscription en 30 secondes
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
